@@ -31,7 +31,7 @@
 			     
 			      <td data-title="Important"><span class="tag is-danger" v-if="item.last_minute">Last minute</span> <span class="tag is-default" v-else>None</span></td>
 			      <td data-title="Client">{{ item.customer_name }}</td>
-			      <td data-title="People">{{ item.adults + item.children + item.infants }}</td>
+			      <td data-title="People">{{ parseInt(item.adults) + parseInt(item.children) }}</td>
 			      <td>
 			      	<a href="#" @click="edit(item)" class="button is-primary is-small">Edit</a>
 			      	<a href="#" @click="remove(item)" class="delete" v-show="isAdmin"></a>

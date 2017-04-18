@@ -105,7 +105,7 @@
 
 	          },
         	getPeople(reservation){
-        		return reservation.adults + reservation.children 
+        		return  parseInt(reservation.adults) + parseInt(reservation.children);
         	},
 
 		 }
