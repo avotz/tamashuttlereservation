@@ -11,6 +11,7 @@
 					    <tr>
 					      <th><abbr title="ID">ID</abbr></th>
 					      <th><abbr title="Name">Name</abbr></th>
+					      <th><abbr title="Type">Type</abbr></th>
 					      <th><abbr title="Created">Created</abbr></th>
 					      <th></th>
 					     
@@ -20,6 +21,7 @@
 					    <tr>
 					       <th><abbr title="ID">ID</abbr></th>
 					      <th><abbr title="Name">Name</abbr></th>
+					      <th><abbr title="Type">Type</abbr></th>
 					      <th><abbr title="Created">Created</abbr></th>
 					      <th></th>
 					     
@@ -32,9 +34,12 @@
 					      <th>{{ $destination->id }}</th>
 					      <td><a href="/destinations/{{ $destination->id }}/edit" title="{{ $destination->name }}">{{ $destination->name }}</a>
 					      </td>
+					      <td>{{ \Lang::get('utils.type.'. $destination->type)  }}</td>
 					      <td>{{ $destination->created_at }}</td>
 					      <td>
+					      @if(auth()->user()->hasRole('admin'))
 					      	 <button type="submit" class="button is-danger" form="form-delete" formaction="{!! url('/destinations/'.$destination->id) !!}"><i class="fa fa-remove"></i></button>
+					      	 @endif
 					      </td>
 					    </tr>
 					    @endforeach

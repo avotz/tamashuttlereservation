@@ -70,7 +70,7 @@ class DestinationsController extends Controller
         $destination = $this->destinationRepo->findById($id);
 
        
-        return view('destinations.edit', compact('vehicule'));
+        return view('destinations.edit', compact('destination'));
 
     }
 
@@ -111,7 +111,7 @@ class DestinationsController extends Controller
     {
        if(! request('q')) return [];
 
-       $destinations = Destination::Search(request('q'))->pluck('name')->all();
+       $destinations = Destination::Type(request('type'))->Search(request('q'))->pluck('name')->all();
      
        return $destinations;
     

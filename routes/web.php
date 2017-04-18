@@ -11,31 +11,41 @@
 |
 */
 
+//travels
 Route::get('/', 'TravelsController@index');
-//Route::get('/reservations', 'ReservationsController@index');
-Route::get('/reservations/list', 'ReservationsController@getReservations');
-Route::put('/reservations/{reservation}/assigned', 'ReservationsController@updateAssigned');
-Route::resource('reservations', 'ReservationsController');
-Route::get('/agenda', 'AgendaController@index');
-
-Route::get('/vehicles/list', 'VehiclesController@getVehicles');
 Route::get('/travels/list', 'TravelsController@getTravels');
 Route::resource('travels', 'TravelsController');
 
-Route::middleware('authByRole:admin')->group(function ()
-{
+//reservations
+Route::get('/reservations/list', 'ReservationsController@getReservations');
+Route::put('/reservations/{reservation}/assigned', 'ReservationsController@updateAssigned');
+Route::resource('reservations', 'ReservationsController');
+
+//destinations
+Route::get('/destinations/list', 'DestinationsController@getDestinations');
+
+/*Route::middleware('authByRole:subadmin|admin')->group(function ()
+{*/
+	//Agenda
+	Route::get('/agenda', 'AgendaController@index');
+	Route::get('/vehicles/list', 'VehiclesController@getVehicles');
+    
+
+    //users
 	Route::resource('users', 'UsersController');
 
+	//vehicles
 	Route::resource('vehicles', 'VehiclesController');
 
-	Route::get('/destinations/list', 'DestinationsController@getDestinations');
+	//destinations
+	
 	Route::resource('destinations', 'DestinationsController');
 
 
 
 
 	
-});
+/*});*/
 
 Auth::routes();
 

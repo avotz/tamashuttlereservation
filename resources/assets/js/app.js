@@ -106,6 +106,7 @@ $(window).on('load', function() {
    // $('select.select2').select2();
 
     $('select[name=role]').change(submitForm);
+    $('select[name=vehicle]').change(submitForm);
 
    
     

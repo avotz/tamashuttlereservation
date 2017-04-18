@@ -21,21 +21,26 @@
 		 data(){
 		 	return{
 		 		options: [],
+		 		tour_location: 1,
 		 		selectedValue: null
 		 	}
 		 },
 		  methods: {
 	        getOptions:_.debounce(function(search,loading) {
 	           loading(true)
-		      axios.get('/destinations/list',{
-			    params: {
-			      q: search
-			    }
-			  }).then(response => {
 
-			  	this.options = response.data
-				loading(false)
-			  });
+	        
+				      axios.get('/destinations/list',{
+					    params: {
+					      q: search,
+					      type:(this.type == 'dropoff') ? this.tour_location : 1
+					    }
+					  }).then(response => {
+
+					  	this.options = response.data
+						loading(false)
+					  });
+					
 
 		    }, 500) /*(search, loading) {
          
@@ -85,17 +90,24 @@
 	          }
 	        
 	         },
+	         onChangeDestinations(type){
+	         	this.tour_location = type;
+	         },
 	         clear(){
 	         	
 	         	this.selectedValue = null;
+	         	if(this.type == 'dropoff')
+	         		this.options = [];
 	         }
        	
         },//methods
 
          created() {
-		 		
+		 			
+		 			
 		 			
 					bus.$on('editReservation', this.selected);
+					bus.$on('changeDestinations', this.onChangeDestinations);
 					bus.$on('clearSelect', this.clear);
 		  },
 		 

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"toda",
+				"today"
+			],
+			[
+				"pick",
+				"pickup"
+			],
+			[
+				"to",
+				"tour_location"
+			],
+			[
 				"res",
 				"reservationsNoAssigned"
 			],
@@ -312,10 +324,6 @@
 				"updateHistory"
 			],
 			[
-				"to",
-				"toString"
-			],
-			[
 				"pato",
 				"patologicos"
 			],
@@ -506,19 +514,100 @@
 			[
 				"mi",
 				"middle"
-			],
-			[
-				"bor",
-				"border"
-			],
-			[
-				"me",
-				"message"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "resources/views/home.blade.php",
+			"settings":
+			{
+				"buffer_size": 3356,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/seeds/DatabaseSeeder.php",
+			"settings":
+			{
+				"buffer_size": 4735,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/reservations/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 1646,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/users/create.blade.php",
+			"settings":
+			{
+				"buffer_size": 763,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/assets/sass/app.scss",
+			"settings":
+			{
+				"buffer_size": 4466,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/search.blade.php",
+			"settings":
+			{
+				"buffer_size": 1457,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/assets/js/app.js",
+			"settings":
+			{
+				"buffer_size": 2885,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/TravelsController.php",
+			"settings":
+			{
+				"buffer_size": 1898,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Repositories/TravelRepository.php",
+			"settings":
+			{
+				"buffer_size": 5848,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/users/partials/search.blade.php",
+			"settings":
+			{
+				"buffer_size": 1426,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -694,6 +783,7 @@
 		"/D/xampp/htdocs/tamashuttlereservation/app",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers",
+		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/Auth",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Middleware",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Requests",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories",
@@ -703,6 +793,7 @@
 		"/D/xampp/htdocs/tamashuttlereservation/database/migrations",
 		"/D/xampp/htdocs/tamashuttlereservation/database/seeds",
 		"/D/xampp/htdocs/tamashuttlereservation/public",
+		"/D/xampp/htdocs/tamashuttlereservation/public/js",
 		"/D/xampp/htdocs/tamashuttlereservation/resources",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js",
@@ -711,29 +802,40 @@
 		"/D/xampp/htdocs/tamashuttlereservation/resources/lang",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/lang/en",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/agenda",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/layouts",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/layouts/partials",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/reservations",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/users",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/users/partials",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles/partials",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vendor"
 	],
 	"file_history":
 	[
+		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/DestinationsController.php",
+		"/D/xampp/htdocs/tamashuttlereservation/app/Destination.php",
+		"/D/xampp/htdocs/tamashuttlereservation/database/seeds/DatabaseSeeder.php",
+		"/D/xampp/htdocs/tamashuttlereservation/package.json",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/ReservationsForm.vue",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/SelectDestinations.vue",
+		"/D/xampp/htdocs/tamashuttlereservation/routes/web.php",
+		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/UsersController.php",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/layouts/partials/nav.blade.php",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/users/index.blade.php",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles/index.blade.php",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/destinations/index.blade.php",
+		"/D/xampp/htdocs/tamashuttlereservation/.babelrc",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/views/destinations/partials/form.blade.php",
+		"/D/xampp/htdocs/tamashuttlereservation/resources/lang/en/utils.php",
+		"/D/xampp/htdocs/tamashuttlereservation/database/migrations/2017_03_22_101508_create_destinations_table.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories/TravelRepository.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Reservation.php",
-		"/D/xampp/htdocs/tamashuttlereservation/routes/web.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/ReservationsController.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories/ReservationRepository.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/Agenda.vue",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/BlockReservation.vue",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/layouts/partials/nav.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/home.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/sass/app.scss",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/TravelsController.php",
-		"/D/xampp/htdocs/tamashuttlereservation/database/seeds/DatabaseSeeder.php",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/ReservationsForm.vue",
 		"/D/xampp/htdocs/tamashuttlereservation/database/migrations/2017_03_22_144352_create_reservations_table.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/_home.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/helpers.php",
@@ -743,9 +845,7 @@
 		"/D/xampp/htdocs/tamashuttlereservation/app/Travel.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/Travel.vue",
 		"/D/xampp/htdocs/tamashuttlereservation/database/migrations/2017_03_28_123158_create_travels_table.php",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/lang/en/utils.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/AgendaController.php",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles/index.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles/edit.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles/partials/form.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/ReservationsList.vue",
@@ -754,24 +854,18 @@
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicles/partials/search.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/reservations/index.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Requests/ReservationRequest.php",
-		"/D/xampp/htdocs/tamashuttlereservation/package.json",
 		"/D/xampp/htdocs/tamashuttlereservation/public/css/vendor/bootstrap.min.css",
 		"/D/xampp/htdocs/tamashuttlereservation/public/css/vendor/_bootstrap.min.css",
-		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/DestinationsController.php",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/SelectDestinations.vue",
 		"/D/xampp/htdocs/tamashuttlereservation/database/factories/ModelFactory.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Vehicle.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories/VehicleRepository.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Requests/VehicleRequest.php",
 		"/D/xampp/htdocs/tamashuttlereservation/database/migrations/2017_03_22_093128_create_vehicles_table.php",
 		"/D/style.css",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/users/index.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicules/index.blade.php",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/destinations/index.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories/DestinationRepository.php",
 		"/D/xampp/htdocs/tamashuttlereservation/routes/api.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/FormError.vue",
-		"/D/xampp/htdocs/tamashuttlereservation/resources/views/destinations/partials/form.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/vehicules/partials/form.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Kernel.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/Api/DestinationsController.php",
@@ -782,12 +876,10 @@
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/destinations/create.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/destinations/partials/search.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/users/partials/search.blade.php",
-		"/D/xampp/htdocs/tamashuttlereservation/database/migrations/2017_03_22_101508_create_destinations_table.php",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/views/users/partials/form.blade.php",
 		"/D/xampp/htdocs/tamashuttlereservation/database/migrations/2017_03_22_093128_create_vehicules_table.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories/VehiculeRepository.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Vehicule.php",
-		"/D/xampp/htdocs/tamashuttlereservation/app/Destination.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Requests/DestinationRequest.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Requests/VehiculeRequest.php",
 		"/D/AVOTZ/hosts",
@@ -797,7 +889,6 @@
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/js/components/Alert.vue",
 		"/D/xampp/htdocs/consulta/resources/assets/sass/_animate.scss",
 		"/D/xampp/htdocs/tamashuttlereservation/resources/assets/sass/_animate.scss",
-		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Controllers/UsersController.php",
 		"/D/Downloads/bulma-0.4.0/bulma-0.4.0/sass/utilities/variables.sass",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Repositories/UserRepository.php",
 		"/D/xampp/htdocs/tamashuttlereservation/app/Http/Requests/UserEditRequest.php",
@@ -847,8 +938,7 @@
 		"/D/xampp/htdocs/consulta/resources/views/layouts/app-admin.blade.php",
 		"/D/xampp/htdocs/consulta/resources/views/layouts/partials/header.blade.php",
 		"/D/xampp/htdocs/consulta/resources/views/layouts/partials/header-patient.blade.php",
-		"/D/xampp/htdocs/consulta/resources/views/layouts/partials/header-admin.blade.php",
-		"/D/xampp/htdocs/consulta/config/app.php"
+		"/D/xampp/htdocs/consulta/resources/views/layouts/partials/header-admin.blade.php"
 	],
 	"find":
 	{
@@ -1043,8 +1133,1160 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "resources/views/home.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3356,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								136,
+								24
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "database/seeds/DatabaseSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3995,
+								3995
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3994,
+										3995
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3885,
+										3886
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/reservations/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								464,
+								24
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/users/create.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 763,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								116,
+								116
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										45,
+										49
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										45,
+										49
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/assets/sass/app.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4162,
+								4162
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4194,
+										4195
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3993,
+										3994
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "resources/views/search.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								553,
+								553
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										553,
+										554
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										538,
+										539
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "resources/assets/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2885,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2685,
+								2721
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2726,
+										2727
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2675,
+										2676
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2430.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Http/Controllers/TravelsController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1898,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								950,
+								950
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1098,
+										1099
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										676,
+										677
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 567.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Repositories/TravelRepository.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3139,
+								3139
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3139,
+										3140
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										3134,
+										3135
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3159.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "resources/views/users/partials/search.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1376,
+								166
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										167,
+										170
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1105,11 +2347,11 @@
 		"selected_items":
 		[
 			[
-				"rw",
+				"rwe",
 				"routes\\web.php"
 			],
 			[
-				"rwe",
+				"rw",
 				"routes\\web.php"
 			],
 			[
@@ -1622,11 +2864,23 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "co",
+		"last_filter": "plum",
 		"selected_items":
 		[
 			[
+				"plum",
+				"D:\\xampp\\htdocs\\plumeria\\plumeria.sublime-project"
+			],
+			[
 				"co",
+				"D:\\xampp\\htdocs\\consulta\\consulta.sublime-project"
+			],
+			[
+				"cos",
+				"D:\\xampp\\htdocs\\costaricabrokers\\costaricabrokers.sublime-project"
+			],
+			[
+				"consu",
 				"D:\\xampp\\htdocs\\consulta\\consulta.sublime-project"
 			],
 			[
@@ -1634,15 +2888,11 @@
 				"D:\\xampp\\htdocs\\crm1.0\\crm1.0.sublime-project"
 			],
 			[
-				"cos",
+				"consul",
 				"D:\\xampp\\htdocs\\consulta\\consulta.sublime-project"
 			],
 			[
 				"cons",
-				"D:\\xampp\\htdocs\\consulta\\consulta.sublime-project"
-			],
-			[
-				"consu",
 				"D:\\xampp\\htdocs\\consulta\\consulta.sublime-project"
 			],
 			[

@@ -15,6 +15,26 @@
         </div>
        
     </div>
+
+    <div class="field">
+      <label for="type" class="label">Type</label>
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="type" value="1"  {{ (isset($destination)) ? ($destination->type == 1) ? 'checked' : '' : 'checked' }}>
+            Location 
+
+        </label>
+        <label class="radio">
+          <input type="radio" name="type"  value="2" {{ (isset($destination) ) ? ($destination->type == 2) ? 'checked' : '' : '' }}>
+            Tour
+        </label>
+         @if ($errors->has('type'))
+                <span class="help is-danger">
+                    {{ $errors->first('type') }}
+                </span>
+            @endif
+      </div>
+    </div>
     
   
     <div class="field">

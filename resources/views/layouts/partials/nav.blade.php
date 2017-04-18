@@ -5,11 +5,15 @@
         <img src="/img/logo.jpg" alt="Tamarindo logo">
       </a>
        @if (!Auth::guest())
-      <a href="/agenda" class="nav-item is-tab is-hidden-mobile {{ set_active('agenda') }}">Agenda</a>
-      <a href="/reservations" class="nav-item is-tab is-hidden-mobile {{ set_active('reservations') }}">Reservations</a>
-      <a href="/destinations" class="nav-item is-tab is-hidden-mobile {{ set_active('destinations') }}" >Destinations</a>
-      <a href="/vehicles" class="nav-item is-tab is-hidden-mobile {{ set_active('vehicles') }}">Vehicles</a>
-      <a href="/users" class="nav-item is-tab is-hidden-mobile {{ set_active('users') }}">Users</a>
+            @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
+              <a href="/agenda" class="nav-item is-tab is-hidden-mobile {{ set_active('agenda') }}">Agenda</a>
+            @endif
+            <a href="/reservations" class="nav-item is-tab is-hidden-mobile {{ set_active('reservations') }}">Reservations</a>
+           @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
+            <a href="/destinations" class="nav-item is-tab is-hidden-mobile {{ set_active('destinations') }}" >Destinations</a>
+            <a href="/vehicles" class="nav-item is-tab is-hidden-mobile {{ set_active('vehicles') }}">Vehicles</a>
+            <a href="/users" class="nav-item is-tab is-hidden-mobile {{ set_active('users') }}">Users</a>
+           @endif
       @endif
     </div>
     <span class="nav-toggle">
@@ -19,11 +23,15 @@
     </span>
     <div class="nav-right nav-menu">
      @if (!Auth::guest())
-      <a class="nav-item is-tab is-hidden-tablet {{ set_active('/') }}">Agenda</a>
-      <a href="/reservations" class="nav-item is-tab is-hidden-tablet {{ set_active('reservations') }}">Reservations</a>
-      <a href="/destinations" class="nav-item is-tab is-hidden-tablet {{ set_active('destinations') }}">Destinations</a>
-      <a href="/vehicles" class="nav-item is-tab is-hidden-tablet {{ set_active('vehicles') }}" >Vehicles</a>
-      <a href="/users" class="nav-item is-tab is-hidden-tablet {{ set_active('users') }}">Users</a>
+           @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
+            <a class="nav-item is-tab is-hidden-tablet {{ set_active('/') }}">Agenda</a>
+           @endif
+          <a href="/reservations" class="nav-item is-tab is-hidden-tablet {{ set_active('reservations') }}">Reservations</a>
+          @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
+            <a href="/destinations" class="nav-item is-tab is-hidden-tablet {{ set_active('destinations') }}">Destinations</a>
+            <a href="/vehicles" class="nav-item is-tab is-hidden-tablet {{ set_active('vehicles') }}" >Vehicles</a>
+            <a href="/users" class="nav-item is-tab is-hidden-tablet {{ set_active('users') }}">Users</a>
+          @endif
       @endif
        @if (Auth::guest())
           <a href="{{ route('login') }}" class="nav-item is-tab ">Login</a>

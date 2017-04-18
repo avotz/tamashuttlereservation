@@ -1,12 +1,14 @@
 @extends('layouts.app')
-
+@section('styles')
+<link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+@endsection
 @section('content')
 <div class="content">
     
        <div class="content">
 					<h1>Travels</h1>
 					
-				
+				@include('search')
 					 
 				   <table class="table">
 					  <thead>
@@ -16,7 +18,7 @@
 					      <th><abbr title="ID">Date</abbr></th>
 					      <th><abbr title="Name">From</abbr></th>
 					      <th><abbr title="Name">To</abbr></th>
-					      <th><abbr title="Name">flight</abbr></th>
+					      <th><abbr title="Name">Flight</abbr></th>
 						  <th><abbr title="Name">Name</abbr></th>
 						  <th><abbr title="Name">PAX</abbr></th>
 						  <th><abbr title="Name">Rate</abbr></th>
@@ -70,4 +72,42 @@
 </form>
               
 </div>
+@endsection
+@section('scripts')
+
+ <script src="{{ asset('js/vendor/jquery-2.2.3.min.js') }}"></script>
+
+<script src="https://unpkg.com/flatpickr"></script>
+
+<!--  <script src="{{ asset('js/vendor/picker.js') }}"></script>
+ <script src="{{ asset('js/vendor/picker.date.js') }}"></script>
+ <script src="{{ asset('js/vendor/picker.time.js') }}"></script> -->
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script> -->
+ <!-- <script src="{{ asset('js/vendor/bootstrap.min.js') }} "></script> -->
+ <!-- <script src="{{ asset('js/vendor/bootstrap-datetimepicker.min.js') }}"></script>  -->
+ <script>
+ 	 (function ($) {
+ 	 	$(".date").flatpickr({
+   		
+ 	 		onChange: function(selectedDates, dateStr, instance) {
+		       $('.filters').find('form').submit();
+		    },
+ 	 	});
+ 	 	 /*$('.datepicker').datetimepicker({
+            format:'YYYY-MM-DD',
+           
+            
+         });*/
+ 		/*$('.datepicker').pickadate({
+ 			format: 'yyyy-mm-dd',
+ 		});
+ 		$('.timepicker').pickatime({
+ 			format: 'H:i',
+ 			formatSubmit: 'H:i',
+ 		})*/
+ 		
+
+ 	})(jQuery);
+ 	 
+ </script>
 @endsection

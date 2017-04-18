@@ -1,5 +1,10 @@
 @extends('layouts.app')
+@section('styles')
 
+<link href="{{ asset('css/vendor/select2.min.css') }}" rel="stylesheet">
+
+
+@endsection
 @section('content')
   <div class="columns ">
     <div class="column is-half is-offset-one-quarter ">
@@ -16,4 +21,20 @@
 	
 
 
+@endsection
+@section('scripts')
+
+ <script src="{{ asset('js/vendor/jquery-2.2.3.min.js') }}"></script>
+ <script src="{{ asset('js/vendor/select2.min.js') }}"></script>
+ 
+ <script>
+ 	 (function ($) {
+
+ 	 	$('.select2').select2();
+            
+        
+ 		
+ 	})(jQuery);
+ 	 
+ </script>
 @endsection

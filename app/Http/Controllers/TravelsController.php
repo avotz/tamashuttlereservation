@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Repositories\TravelRepository;
+use App\Repositories\VehicleRepository;
+use App\Vehicle;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TravelsController extends Controller
@@ -13,10 +16,11 @@ class TravelsController extends Controller
      *
      * @return void
      */
-    public function __construct(TravelRepository $travelRepo)
+    public function __construct(TravelRepository $travelRepo, VehicleRepository $vehicleRepo)
     {
         $this->middleware('auth');
         $this->travelRepo = $travelRepo;
+        $this->vehicleRepo = $vehicleRepo;
     }
 
     /**
@@ -26,9 +30,14 @@ class TravelsController extends Controller
      */
     public function index()
     {
-        $travels = $this->travelRepo->findAll();
-        //dd($Travels);
-        return view('home',compact('travels'));
+        $search = request()->all();
+        $search['date'] =(trim(request('date')) != '') ? request('date') : Carbon::now()->toDateTimeString();
+        
+        $travels = $this->travelRepo->findAll($search);
+        //$vehicles = $this->vehicleRepo->findAll();
+        $vehicles =  Vehicle::select('name','id','maximum_capacity')->get();
+      
+        return view('home',compact('travels','vehicles','search'));
     }
 
     /**

@@ -16,6 +16,7 @@ class CreateDestinationsTable extends Migration
         Schema::create('destinations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->tinyInteger('type')->default(1); //1 location 2 tours
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

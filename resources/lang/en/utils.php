@@ -19,6 +19,12 @@ return [
         '5' => "yellow",
         '6' => "purple",
     ],
+    'type'  => [
+        '0' => '',
+        '1' => 'Location',
+        '2' => 'Tour'
+       
+    ],
     
 
 ];

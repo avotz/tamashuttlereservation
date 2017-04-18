@@ -40,7 +40,9 @@
 					      <td>{{ $user->roles->first()->name }}</td>
 					      <td>{{ $user->created_at }}</td>
 					      <td>
+					      	 @if(auth()->user()->hasRole('admin'))
 					      	 <button type="submit" class="button is-danger" form="form-delete" formaction="{!! url('/users/'.$user->id) !!}"><i class="fa fa-remove"></i></button>
+					      	 @endif
 					      </td>
 					    </tr>
 					    @endforeach

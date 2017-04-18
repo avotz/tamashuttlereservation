@@ -40,7 +40,9 @@
 					      <td>{{ $vehicle->maximum_capacity }}</td>
 					      <td>{{ $vehicle->created_at }}</td>
 					      <td>
+					       @if(auth()->user()->hasRole('admin'))
 					      	 <button type="submit" class="button is-danger" form="form-delete" formaction="{!! url('/vehicles/'.$vehicle->id) !!}"><i class="fa fa-remove"></i></button>
+					      	@endif
 					      </td>
 					    </tr>
 					    @endforeach

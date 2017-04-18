@@ -4,6 +4,30 @@
             <div class="content">
               <h1>New Reservation</h1>
             </div>
+             <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Service</label>
+              </div>
+              <div class="field-body">
+                <div class="field ">
+                  <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                   <select class="input " style="width: 100%;" id="service_color" name="service_color" v-model="form.service_color" @keydown="errors.service_color = []" @change="loadDestinations()">
+                          
+                              
+                              <option :value="item.value" v-for="item in service_colors"> {{ item.text }}</option>
+                         
+                         
+                   </select>
+                   </div>
+                    
+                    <form-error v-if="errors.service_color" :errors="errors" >
+                        {{ errors.service_color[0] }}
+                    </form-error>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="field is-horizontal">
               <div class="field-label is-normal">
                 <label class="label">Date</label>
@@ -272,30 +296,7 @@
                
               </div>
             </div>
-             <div class="field is-horizontal">
-              <div class="field-label">
-                <label class="label">Service</label>
-              </div>
-              <div class="field-body">
-                <div class="field ">
-                  <div class="control is-expanded">
-                  <div class="select is-fullwidth">
-                   <select class="input " style="width: 100%;" id="service_color" name="service_color" v-model="form.service_color" @keydown="errors.service_color = []">
-                          
-                              
-                              <option :value="item.value" v-for="item in service_colors"> {{ item.text }}</option>
-                         
-                         
-                   </select>
-                   </div>
-                    
-                    <form-error v-if="errors.service_color" :errors="errors" >
-                        {{ errors.service_color[0] }}
-                    </form-error>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
             <div class="field is-horizontal">
               <div class="field-label is-normal">
                 <label class="label">Rate</label>
@@ -449,6 +450,7 @@
                     status: 0,
                     notes: '',
                   },
+                  
                   statuses:[
                     {
                       text:'Confirmed',
@@ -594,7 +596,22 @@
               this.errors.dropoff = [];
 
           },
-          
+
+          loadDestinations(){
+            this.form.dropoff = '';
+            this.form.pickup = '';
+            bus.$emit('clearSelect');
+
+            if(this.form.service_color == 3){
+
+            
+               bus.$emit('changeDestinations', 2);
+
+            }else{
+               bus.$emit('changeDestinations', 1);
+            }
+          },
+
           save(){ 
               
 

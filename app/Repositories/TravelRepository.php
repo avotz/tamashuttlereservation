@@ -106,19 +106,32 @@ class TravelRepository extends DbRepository{
         $order = 'date';
         $dir = 'asc';
         $travels = $this->model;
+
+        
         
         $travels =  $travels->selectRaw('travels.id as travel_id, reservations.*, vehicles.name as vehicle, vehicles.maximum_capacity')
             ->join('reservation_travel', 'reservation_travel.travel_id', '=', 'travels.id')
             ->join('reservations', 'reservations.id', '=', 'reservation_travel.reservation_id')
 
             ->join('travel_vehicle', 'travel_vehicle.travel_id', '=', 'travels.id')
-             ->join('vehicles', 'vehicles.id', '=', 'travel_vehicle.vehicle_id')
+             ->join('vehicles', 'vehicles.id', '=', 'travel_vehicle.vehicle_id');
              //->groupBy('travels.id')
-             ->orderBy('reservations.'.$order, $dir)
-            ->get();
+            // ->where('vehicles.id','=', $search['vehicle'])
+            // ->orderBy('reservations.'.$order, $dir)
+            //->get();
+
+         if (isset($search['date']) && trim($search['date']))
+        {
+            $travels = $travels->whereDate('reservations.date', $search['date']);
+        } 
+            
+         if (isset($search['vehicle']) && trim($search['vehicle']))
+        {
+            $travels = $travels->where('vehicles.id','=', $search['vehicle']);
+        } 
         
         
-        return paginate($travels->all(), $this->limit);
+        return paginate($travels->orderBy('reservations.'.$order, $dir)->get()->all(), $this->limit);
 
         /*if (! count($search) > 0) return $this->model->paginate($this->limit);
 
