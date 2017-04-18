@@ -1,7 +1,7 @@
 <template>
  <div class="panel" :data-id=" element.id ">
- <div class="panel-heading" @click="showInfo = !showInfo">
-     {{ element.customer_name }} <div class="is-pulled-right "><span class="tag is-info is-small" v-show="!isCompact"> Total: ${{ getPrice(element) }}</span> <span class="tag is-success">People: {{  getPeople(element) }} </span> <span class="tag is-danger" v-if="element.last_minute" v-show="!isCompact">Last minute</span> <span class="tag is-dark">{{ element.date }} </span>
+ <div :class="{ important: element.last_minute  }" class="panel-heading" @click="showInfo = !showInfo">
+     {{ element.customer_name }} <div class="is-pulled-right "><span class="tag is-info is-small" v-show="!isCompact"> Total: ${{ getPrice(element) }}</span> <span class="tag is-success">People: {{  getPeople(element) }} </span> <span class="tag is-default" v-if="element.last_minute" v-show="!isCompact">Last minute</span> <span class="tag is-dark">{{ element.date }} </span>
      </div>
   </div>
   <div class="panel-content" v-show="showInfo">

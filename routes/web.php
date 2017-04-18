@@ -24,8 +24,8 @@ Route::resource('reservations', 'ReservationsController');
 //destinations
 Route::get('/destinations/list', 'DestinationsController@getDestinations');
 
-/*Route::middleware('authByRole:subadmin|admin')->group(function ()
-{*/
+Route::middleware('authByRole:admin')->group(function ()
+{
 	//Agenda
 	Route::get('/agenda', 'AgendaController@index');
 	Route::get('/vehicles/list', 'VehiclesController@getVehicles');
@@ -45,7 +45,7 @@ Route::get('/destinations/list', 'DestinationsController@getDestinations');
 
 
 	
-/*});*/
+});
 
 Auth::routes();
 

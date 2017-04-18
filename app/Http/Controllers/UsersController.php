@@ -31,8 +31,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        if(!auth()->user()->hasRole('admin') && !auth()->user()->hasRole('subadmin')) return redirect('/');
-
+      
         $search['q'] = request('q');
         $search['role'] = request('role');
 
@@ -46,8 +45,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        if(!auth()->user()->hasRole('admin') && !auth()->user()->hasRole('subadmin')) return redirect('/');
-
+       
         return view('users.create');
 
     }
@@ -73,8 +71,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        if(!auth()->user()->hasRole('admin') && !auth()->user()->hasRole('subadmin')) return redirect('/');
-        
+       
         $user = $this->userRepo->findById($id);
 
        
@@ -108,7 +105,7 @@ class UsersController extends Controller
 
         flash('User Deleted','success');
 
-        
+
 
         return back();
 

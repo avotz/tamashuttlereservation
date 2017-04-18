@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 
-	 <div class="columns">
+	 <div class="columns is-desktop">
         	<div class="column">
 
 			    <reservations-form></reservations-form>

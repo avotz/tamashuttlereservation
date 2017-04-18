@@ -1,6 +1,6 @@
 <template>
 	<div class="drag">
-		<div class="columns">
+		<div class="columns is-desktop">
 			<div class="column">
 				<div class="content">
 					
@@ -82,53 +82,45 @@
 		      </draggable>
 			</div>
 		</div>
-		
-	    <table class="table">
-		  <thead>
-		    <tr>
-		      
-		      <th>ID</th>
-		      <th>Vehicle</th>
-		      <th><abbr title="Reservations">Reservations</abbr></th>
-		      <th><abbr title="Created At">Created At</abbr></th>
-		      <th></th>
-		    </tr>
-		  </thead>
-		  <tfoot>
-		    <tr>
-		      <th>ID</th>
-		      <th>Vehicle</th>
-		      <th><abbr title="Reservations">Reservations</abbr></th>
-		      <th><abbr title="Created At">Created At</abbr></th>
-		      <th></th>
-		    </tr>
-		  </tfoot>
-		  <tbody>
-		    <tr v-for="item in travelsData.data">
-		      <td><a href="#" :title=" item.id ">{{ item.id }}</a>
-		      </td>
-		      <th>
-				
-				{{ item.vehicles[0].name }}
-				
-		      </th>
-		     
-		      <td>{{ item.reservations.length }}</td>
-		      <td>{{ item.created_at }}</td>
-		      <td>
-		      	<a href="#" @click="edit(item)" class="button is-primary is-small">Edit</a>
-		      	<a href="#" @click="remove(item)" class="delete"></a>
-		      </td>
-		      
-		    </tr>
-		   
-		    
-		  </tbody>
-		</table>
-		
-		<nav class="pagination-bulma">
-			<laravel-pagination :data="travelsData" v-on:pagination-change-page="getTravels"></laravel-pagination >
-		</nav>
+		<div id="no-more-tables">
+		    <table class="table">
+			  <thead>
+			    <tr>
+			      
+			      <th>ID</th>
+			      <th>Vehicle</th>
+			      <th><abbr title="Reservations">Reservations</abbr></th>
+			      <th><abbr title="Created At">Created At</abbr></th>
+			      <th></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr v-for="item in travelsData.data">
+			      <td data-title="ID"><a href="#" :title=" item.id ">{{ item.id }}</a>
+			      </td>
+			      <td data-title="Vehicle">
+					
+					{{ item.vehicles[0].name }}
+					
+			      </td>
+			     
+			      <td data-title="Reservations">{{ item.reservations.length }}</td>
+			      <td data-title="Created At">{{ item.created_at }}</td>
+			      <td>
+			      	<a href="#" @click="edit(item)" class="button is-primary is-small">Edit</a>
+			      	<a href="#" @click="remove(item)" class="delete"></a>
+			      </td>
+			      
+			    </tr>
+			   
+			    
+			  </tbody>
+			</table>
+			
+			<nav class="pagination-bulma">
+				<laravel-pagination :data="travelsData" v-on:pagination-change-page="getTravels"></laravel-pagination >
+			</nav>
+		</div>
 	</div>
 </template>
 <script>

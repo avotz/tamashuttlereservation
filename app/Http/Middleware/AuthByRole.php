@@ -19,6 +19,10 @@ class AuthByRole
         {
             return $next($request);
         }
+        if(auth()->check() && auth()->user()->hasRole('subadmin'))
+        {
+            return $next($request);
+        }
 
         return redirect('/');
 

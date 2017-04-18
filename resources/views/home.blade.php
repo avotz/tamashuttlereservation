@@ -9,22 +9,22 @@
 					<h1>Travels</h1>
 					
 				@include('search')
-					 
+				<div id="no-more-tables"> 
 				   <table class="table">
 					  <thead>
 					    
 					    <tr>
-					      <th><abbr title="ID">Vehicle</abbr></th>
-					      <th><abbr title="ID">Date</abbr></th>
-					      <th><abbr title="Name">From</abbr></th>
-					      <th><abbr title="Name">To</abbr></th>
-					      <th><abbr title="Name">Flight</abbr></th>
+					      <th><abbr title="Vehicle">Vehicle</abbr></th>
+					      <th><abbr title="Date">Date</abbr></th>
+					      <th><abbr title="From">From</abbr></th>
+					      <th><abbr title="To">To</abbr></th>
+					      <th><abbr title="Flight">Flight</abbr></th>
 						  <th><abbr title="Name">Name</abbr></th>
-						  <th><abbr title="Name">PAX</abbr></th>
-						  <th><abbr title="Name">Rate</abbr></th>
-						  <th><abbr title="Name">$</abbr></th>
-						  <th><abbr title="Name">Status</abbr></th>
-						  <th><abbr title="Name">Notes</abbr></th>
+						  <th><abbr title="PAX">PAX</abbr></th>
+						  <th><abbr title="Rate">Rate</abbr></th>
+						  <th><abbr title="$">$</abbr></th>
+						  <th><abbr title="Status">Status</abbr></th>
+						  <th><abbr title="Notes">Notes</abbr></th>
 					     
 					     
 					    </tr>
@@ -34,23 +34,23 @@
 
 						@foreach($travels as $travel)
 					    <tr class="color-reservation is-{!! \Lang::get('utils.service_color.'. $travel->service_color)  !!}">
-					      <th  class="header-vehicle">
+					      <td data-title="Vehicle" class="header-vehicle">
 					        {{ $travel->vehicle }}  {{ $travel->maximum_capacity }} PAX
-					 		</th>
-					      <th> {{ $travel->date }}</th>
-					      <td>
+					 		</td>
+					      <td data-title="Date"> {{ $travel->date }}</td>
+					      <td data-title="From">
 					       {{ $travel->pickup }}
 					      </td>
-					      <td> 
+					      <td data-title="To"> 
 					       {{ $travel->dropoff }} 
 					      
-					      <td>{{ $travel->flight }} </td>
-					      <td>{{ $travel->customer_name }}</td>
-					       <td>{{ $travel->adults + $travel->children  }}</td>
-					       <td>{{ $travel->rate }}</td>
-					       <td>{{ ($travel->adults + $travel->children) * $travel->rate }}</td>
-					       <td>{{ \Lang::get('utils.status.'. $travel->status)  }}</td>
-					       <td>{{ $travel->notes }}</td>
+					      <td data-title="Flight">{{ ($travel->flight) ? $travel->flight : '--' }} </td>
+					      <td data-title="Name">{{ $travel->customer_name }}</td>
+					       <td data-title="PAX">{{ $travel->adults + $travel->children  }}</td>
+					       <td data-title="Rate">{{ $travel->rate }}</td>
+					       <td data-title="$">{{ ($travel->adults + $travel->children) * $travel->rate }}</td>
+					       <td data-title="Status">{{ \Lang::get('utils.status.'. $travel->status)  }}</td>
+					       <td data-title="Notes">{{ $travel->notes }}</td>
 					      
 					    </tr>
 					    @endforeach
@@ -63,7 +63,8 @@
 					 @if ($travels)
                         <div class="pagination-bulma">{!!$travels->render()!!}</div>
                     @endif
-				</div>
+                   </div>
+		</div>
 		
     
        

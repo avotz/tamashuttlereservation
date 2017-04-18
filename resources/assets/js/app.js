@@ -108,6 +108,12 @@ $(window).on('load', function() {
     $('select[name=role]').change(submitForm);
     $('select[name=vehicle]').change(submitForm);
 
+    $('.nav-toggle').on('click',function (e) {
+       $('.nav-right.nav-menu').toggleClass('is-active');
+    });
+   
+    
+
    
     
     
