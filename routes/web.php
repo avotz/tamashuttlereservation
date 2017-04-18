@@ -19,6 +19,7 @@ Route::resource('travels', 'TravelsController');
 //reservations
 Route::get('/reservations/list', 'ReservationsController@getReservations');
 Route::put('/reservations/{reservation}/assigned', 'ReservationsController@updateAssigned');
+Route::put('/reservations/{reservation}/cancel', 'ReservationsController@cancel');
 Route::resource('reservations', 'ReservationsController');
 
 //destinations

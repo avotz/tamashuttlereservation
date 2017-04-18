@@ -81,6 +81,20 @@ class ReservationsController extends Controller
         return  $reservation;
 
     }
+
+    /**
+     * Actualizar reservacion
+     */
+    public function cancel($id)
+    {
+      
+        $reservation = \DB::table('reservations')
+            ->where('id', $id)
+            ->update(['status' => -1]);   
+
+        return  $reservation;
+
+    }
      /**
      * Eliminar user
      */

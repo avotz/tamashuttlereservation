@@ -314,7 +314,7 @@
 				}
 
 				// Using vue-resource as an example
-				axios.get('/reservations/list?assigned=0&page=' + page).then((response) => {
+				axios.get('/reservations/list?except=-1&assigned=0&page=' + page).then((response) => {
                       
                      
                       

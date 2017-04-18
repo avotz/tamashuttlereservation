@@ -88,6 +88,12 @@ class ReservationRepository extends DbRepository{
            
 
         }
+        if (isset($search['except']) && $search['except'] != "")
+        {
+            
+              $reservations->where('status','<>', $search['except']);
+              
+        }
 
         if (isset($search['order']) && $search['order'] != "")
         {

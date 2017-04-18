@@ -29,11 +29,20 @@
 					
 			      </td>
 			     
-			      <td data-title="Important"><span class="tag is-danger" v-if="item.last_minute">Last minute</span> <span class="tag is-default" v-else>None</span></td>
+			      <td data-title="Important">
+
+			      	<div v-if="item.status != -1">
+			      		<span class="tag is-danger" v-if="item.last_minute">Last minute</span> <span class="tag is-default" v-else>None</span>
+			      	</div>
+			      	<div v-else>
+			      		<span class="tag is-warning">Canceled</span>
+			      	</div>
+			      </td>
 			      <td data-title="Client">{{ item.customer_name }}</td>
 			      <td data-title="People">{{ parseInt(item.adults) + parseInt(item.children) }}</td>
 			      <td>
-			      	<a href="#" @click="edit(item)" class="button is-primary is-small">Edit</a>
+			      	<a href="#" @click="edit(item)" class="button is-primary is-small" v-show="item.status != -1">Edit</a>
+			      	<a href="#" @click="cancel(item)" class="button is-warning is-small" v-show="item.status != -1">Cancel</a>
 			      	<a href="#" @click="remove(item)" class="delete" v-show="isAdmin"></a>
 			      </td>
 			      
@@ -75,11 +84,10 @@
 				if (typeof page === 'undefined') {
 					page = 1;
 				}
+				
 
 				// Using vue-resource as an example
 				axios.get('/reservations/list?page=' + page).then((response) => {
-                      
-                     
                       
                       this.data = response.data;
                       
@@ -114,6 +122,27 @@
 	           
 
 	          }, //remove
+
+	         cancel(item){
+
+	         	  axios.put('/reservations/'+ item.id + '/cancel', item ).then((response) => {
+                    
+                   
+                    
+                     this.getResults();
+                    
+                     bus.$emit('alert', 'Reservation Canceled','success');
+                     
+                     
+                    
+                  }, (response) => {
+                              // console.log(response.response.data)
+                              this.errors = response.response.data;
+                  });
+	           
+	        	 
+
+	          }, //cancel
 
           	updateList(reservation){
 
