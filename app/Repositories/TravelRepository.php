@@ -207,7 +207,7 @@ class TravelRepository extends DbRepository{
         $travel = $this->model->findOrFail($id);
         $idsReservations =  $travel->reservations->pluck('id');
 
-        $travel = $travel->delete();
+        $res = $travel->delete();
 
         \DB::table('reservations')
             ->whereIn('id', $idsReservations)
@@ -221,7 +221,11 @@ class TravelRepository extends DbRepository{
             ->where('travel_id', $id)
             ->delete();
 
-        return $travel;
+    
+        logInfo(auth()->user(), 'Se eliminó el viaje #'. $travel->id.', reservacion: '. $travel->reservations .', vehicle: '. $travel->vehicles  );
+       
+
+        return $res;
     }
 
 

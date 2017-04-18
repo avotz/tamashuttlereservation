@@ -62,6 +62,8 @@ class UsersController extends Controller
         
         flash('User saved','success');
 
+         logInfo(auth()->user(), 'Se creó el usuario #'. $user->id.', nombre: '. $user->name.', roles: '.$user->roles);
+
         return redirect('/users');
 
     }
@@ -90,6 +92,8 @@ class UsersController extends Controller
         
         flash('User saved','success');
 
+         logInfo(auth()->user(), 'Se actualizó el usuario #'. $user->id.', nombre: '. $user->name.', roles: '.$user->roles);
+
         return back();
 
     }
@@ -103,6 +107,8 @@ class UsersController extends Controller
         $user = $this->userRepo->delete($id);
 
         flash('User Deleted','success');
+
+        
 
         return back();
 

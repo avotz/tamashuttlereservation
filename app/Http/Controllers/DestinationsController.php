@@ -57,6 +57,8 @@ class DestinationsController extends Controller
         
         flash('Vehicule saved','success');
 
+         logInfo(auth()->user(), 'Se creó el destino #'. $destination->id.', nombre: '. $destination->name);
+
         return redirect('/destinations');
 
     }
@@ -84,6 +86,8 @@ class DestinationsController extends Controller
         
         flash('Destination saved','success');
 
+        logInfo(auth()->user(), 'Se actualizó el destino #'. $destination->id.', nombre: '. $destination->name);
+
         return back();
 
     }
@@ -97,6 +101,8 @@ class DestinationsController extends Controller
         $destination = $this->destinationRepo->delete($id);
 
         flash('Destination Deleted','success');
+
+        //logInfo(auth()->user(), 'Se eliminó el destino #'. $id);
 
         return back();
 

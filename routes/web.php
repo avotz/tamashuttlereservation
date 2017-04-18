@@ -52,6 +52,7 @@ Auth::routes();
 //Route::get('/register', 'Auth\RegisterPatientController@showRegistrationForm');
 //Route::post('/register', 'Auth\RegisterPatientController@register');
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'TravelsController@index');
 

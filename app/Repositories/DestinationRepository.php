@@ -99,9 +99,13 @@ class DestinationRepository extends DbRepository{
     public function delete($id)
     {
         
-        $destination = $this->model->findOrFail($id)->delete();
+        $destination = $this->model->findOrFail($id);
+
+        $res =  $destination->delete();
+
+        logInfo(auth()->user(), 'Se eliminó el destino #'. $destination->id.', nombre: '. $destination->name);
      
-        return $destination;
+        return $res;
     }
 
 

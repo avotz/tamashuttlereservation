@@ -59,6 +59,9 @@ class TravelsController extends Controller
         //dd(request()->all());
         $travel = $this->travelRepo->store(request()->all());
 
+        logInfo(auth()->user(), 'Se creó un nuevo viaje #'. $travel->id.', reservacion: '. $travel->reservations .', vehicle: '. $travel->vehicles  );
+
+
         return $travel;
     }
 
@@ -70,6 +73,8 @@ class TravelsController extends Controller
       
         $travel = $this->travelRepo->update($id, request()->all());
         
+
+         logInfo(auth()->user(), 'Se actualizó el viaje #'. $travel->id.', reservacion: '. $travel->reservations .', vehicle: '. $travel->vehicles  );
        
 
         return  $travel;
@@ -84,7 +89,8 @@ class TravelsController extends Controller
 
         $travel = $this->travelRepo->delete($id);
 
-        
+    
+        //logInfo(auth()->user(), 'Se eliminó el viaje #'. $id);
 
         return '';
 

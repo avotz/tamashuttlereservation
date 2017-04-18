@@ -99,9 +99,14 @@ class VehicleRepository extends DbRepository{
     public function delete($id)
     {
         
-        $vehicle = $this->model->findOrFail($id)->delete();
+        $vehicle = $this->model->findOrFail($id);
+
+        $res = $vehicle->delete();
+
+
+         logInfo(auth()->user(), 'Se eliminó el vehiculo #'. $vehicle->id.', nombre: '. $vehicle->name.', conductor: '.$vehicle->driver);
      
-        return $vehicle;
+        return $res;
     }
 
 

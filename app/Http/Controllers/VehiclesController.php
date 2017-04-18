@@ -56,6 +56,8 @@ class VehiclesController extends Controller
         
         flash('Vehicle saved','success');
 
+         logInfo(auth()->user(), 'Se creó el vehiculo #'. $vehicle->id.', nombre: '. $vehicle->name.', conductor: '.$vehicle->driver);
+
         return redirect('/vehicles');
 
     }
@@ -83,6 +85,8 @@ class VehiclesController extends Controller
         
         flash('Vehicle saved','success');
 
+         logInfo(auth()->user(), 'Se actualizó el vehiculo #'. $vehicle->id.', nombre: '. $vehicle->name.', conductor: '.$vehicle->driver);
+
         return back();
 
     }
@@ -96,6 +100,9 @@ class VehiclesController extends Controller
         $vehicle = $this->vehicleRepo->delete($id);
 
         flash('Vehicle Deleted','success');
+
+        //logInfo(auth()->user(), 'Se eliminó el vehiculo #'. $id);
+
 
         return back();
 

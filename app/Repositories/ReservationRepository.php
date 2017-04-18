@@ -115,9 +115,13 @@ class ReservationRepository extends DbRepository{
     public function delete($id)
     {
         
-        $reservation = $this->model->findOrFail($id)->delete();
+        $reservation = $this->model->findOrFail($id);
+
+        $res = $reservation->delete();
+        
+        logInfo(auth()->user(), 'Se eliminó la reservación #'. $reservation->id.', fecha: '. $reservation->date .', cliente: '. $reservation->customer_name  );
      
-        return $reservation;
+        return $res;
     }
 
 

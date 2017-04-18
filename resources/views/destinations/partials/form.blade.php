@@ -42,7 +42,7 @@
           <button type="submit" class="button is-success">
               Save
           </button>
-          <a href="/vehicules" class="button is-danger">Back</a>
+          <a href="/destinations" class="button is-danger">Back</a>
 
         </div>
     </div>

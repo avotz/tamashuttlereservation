@@ -112,9 +112,13 @@ class UserRepository extends DbRepository{
     public function delete($id)
     {
         
-        $user = $this->model->findOrFail($id)->delete();
+        $user = $this->model->findOrFail($id);
+
+        $res = $user->delete();
+
+        logInfo(auth()->user(), 'Se eliminó el usuario #'. $user->id.', nombre: '. $user->name.', roles: '.$user->roles);
      
-        return $user;
+        return $res;
     }
 
 

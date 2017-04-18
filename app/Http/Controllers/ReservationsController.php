@@ -48,6 +48,8 @@ class ReservationsController extends Controller
       
         $reservation = $this->reservationRepo->store($request->all());
 
+        logInfo(auth()->user(), 'Se creó la reservación #'. $reservation->id.', fecha: '. $reservation->date .', cliente: '. $reservation->customer_name  );
+
         return $reservation;
     }
 
@@ -58,8 +60,9 @@ class ReservationsController extends Controller
     {
       
         $reservation = $this->reservationRepo->update($id, $request->all());
-        
+
        
+        logInfo(auth()->user(), 'Se actualizó la reservación #'. $reservation->id.', fecha: '. $reservation->date .', cliente: '. $reservation->customer_name  );
 
         return  $reservation;
 
@@ -86,9 +89,10 @@ class ReservationsController extends Controller
 
         $reservation = $this->reservationRepo->delete($id);
 
-        
+        //logInfo(auth()->user(), 'Se eliminó la reservación #'. $id  );
 
         return '';
 
     }
+   
 }

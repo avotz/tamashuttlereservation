@@ -44,3 +44,8 @@ function set_active($path, $active = 'is-active')
   
     return Request::is($path) ? $active : '';
 }
+
+ function logInfo($user,$action)
+    {
+        Log::info('User: '. $user->id .'-'.$user->name.', Acción: '. $action);
+    }
