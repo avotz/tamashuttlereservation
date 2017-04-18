@@ -111,6 +111,12 @@ $(window).on('load', function() {
     $('.nav-toggle').on('click',function (e) {
        $('.nav-right.nav-menu').toggleClass('is-active');
     });
+
+     $(".btn-print").on('click',function (e) {
+         e.preventDefault();
+         
+            window.print();
+        });
    
     
 

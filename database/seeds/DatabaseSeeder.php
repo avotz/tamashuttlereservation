@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     private $tables = [
-        'users','reservations','roles','role_user', 'destinations','vehicles'
+        'users','reservations','roles','role_user', 'destinations','vehicles','reservation_travel','travel_vehicle','travels'
     ];
     
     /**

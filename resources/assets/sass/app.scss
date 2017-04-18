@@ -17,6 +17,17 @@ $warning: #bf5329;
 $yellow: #ffdb4a;
 $purple: purple;
 
+@media print {
+  #app {
+  	font-size:10px;
+  }
+  #app > nav.nav{
+  	display:none;
+  }
+   #app .filters{
+  	display:none;
+  }
+}
 .table{
 	.header-vehicle{
 		background-color: #c3c3c3;

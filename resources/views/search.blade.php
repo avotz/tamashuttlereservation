@@ -1,6 +1,9 @@
 <div class="panel filters">
 	<div class="panel-heading">
-		Search
+		Search 
+		<div class="is-pulled-right">
+	        <button class="button is-small is-info is-outlined btn-print">Print</button>
+	    </div>
 	</div>
 	<div class="panel-block">
 		<form action="/" method="GET">
@@ -37,5 +40,6 @@
          
          
       </form>
+      
 	</div>
 </div>

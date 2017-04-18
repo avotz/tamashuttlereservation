@@ -31,9 +31,10 @@ class TravelsController extends Controller
     public function index()
     {
         $search = request()->all();
-        $search['date'] =(trim(request('date')) != '') ? request('date') : Carbon::now()->toDateTimeString();
-        
+        $search['date'] =(trim(request('date')) != '') ? request('date') : Carbon::now()->toDateString();
+       
         $travels = $this->travelRepo->findAll($search);
+
         //$vehicles = $this->vehicleRepo->findAll();
         $vehicles =  Vehicle::select('name','id','maximum_capacity')->get();
       
