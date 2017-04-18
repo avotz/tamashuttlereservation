@@ -16,7 +16,7 @@
 			</div>
 			<div class="column ">
 				
-				<reservations-list ></reservations-list>
+				<reservations-list :is-admin="{{ (auth()->user()->hasRole('admin')) ? 1 : 0 }}"></reservations-list>
 					
 				
 			   

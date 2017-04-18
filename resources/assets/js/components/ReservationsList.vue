@@ -43,7 +43,7 @@
 		      <td>{{ item.adults + item.children + item.infants }}</td>
 		      <td>
 		      	<a href="#" @click="edit(item)" class="button is-primary is-small">Edit</a>
-		      	<a href="#" @click="remove(item)" class="delete"></a>
+		      	<a href="#" @click="remove(item)" class="delete" v-show="isAdmin"></a>
 		      </td>
 		      
 		    </tr>
@@ -63,7 +63,8 @@
    import LaravelPagination from 'laravel-vue-pagination'
    
  export default {
-        props: ['reservations'],
+        props: ['reservations','isAdmin'],
+       
         components: {
 		    LaravelPagination: LaravelPagination
 		  },
