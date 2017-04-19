@@ -13891,6 +13891,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     edit: function edit(reservation) {
 
       this.form = reservation;
+      /*this.form.adults = parseInt(this.form.adults)
+      this.form.children = parseInt(this.form.adults)
+      this.form.infants = parseInt(this.form.adults)
+      this.form.baby_seat = parseInt(this.form.adults)
+      this.form.last_minute = parseInt(this.form.last_minute)
+      this.form.status = parseInt(this.form.status)*/
+
       this.pickertime = {
         HH: reservation.time.split(":")[0],
         mm: reservation.time.split(":")[1]
@@ -40850,9 +40857,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('input', {
     directives: [{
       name: "model",
-      rawName: "v-model",
+      rawName: "v-model.number",
       value: (_vm.form.rate),
-      expression: "form.rate"
+      expression: "form.rate",
+      modifiers: {
+        "number": true
+      }
     }],
     staticClass: "input",
     attrs: {
@@ -40868,7 +40878,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.form.rate = $event.target.value
+        _vm.form.rate = _vm._n($event.target.value)
+      },
+      "blur": function($event) {
+        _vm.$forceUpdate()
       }
     }
   }), _vm._v(" "), _vm._m(17), _vm._v(" "), (_vm.errors.rate) ? _c('form-error', {
@@ -40894,9 +40907,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('select', {
     directives: [{
       name: "model",
-      rawName: "v-model",
+      rawName: "v-model.number",
       value: (_vm.form.status),
-      expression: "form.status"
+      expression: "form.status",
+      modifiers: {
+        "number": true
+      }
     }],
     staticClass: "input ",
     staticStyle: {
@@ -40915,7 +40931,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           return o.selected
         }).map(function(o) {
           var val = "_value" in o ? o._value : o.value;
-          return val
+          return _vm._n(val)
         });
         _vm.form.status = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
       }
@@ -40982,9 +40998,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('input', {
     directives: [{
       name: "model",
-      rawName: "v-model",
+      rawName: "v-model.number",
       value: (_vm.form.last_minute),
-      expression: "form.last_minute"
+      expression: "form.last_minute",
+      modifiers: {
+        "number": true
+      }
     }],
     attrs: {
       "type": "checkbox",
@@ -41000,7 +41019,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           $$el = $event.target,
           $$c = $$el.checked ? (true) : (false);
         if (Array.isArray($$a)) {
-          var $$v = "1",
+          var $$v = _vm._n("1"),
             $$i = _vm._i($$a, $$v);
           if ($$c) {
             $$i < 0 && (_vm.form.last_minute = $$a.concat($$v))
