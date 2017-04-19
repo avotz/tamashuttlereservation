@@ -32,7 +32,7 @@
 			      <td data-title="Important">
 
 			      	<div v-if="item.status != -1">
-			      		<span class="tag is-danger" v-if="item.last_minute">Last minute</span> <span class="tag is-default" v-else>None</span>
+			      		<span class="tag is-danger" v-if="item.last_minute == 1">Last minute</span> <span class="tag is-default" v-else>None</span>
 			      	</div>
 			      	<div v-else>
 			      		<span class="tag is-warning">Canceled</span>

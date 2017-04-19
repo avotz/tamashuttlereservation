@@ -150,7 +150,7 @@ class ReservationRepository extends DbRepository{
         if(empty($data['infants']) || is_null($data['infants']))
             $data = array_except($data, array('infants'));
 
-               
+              
 
         return $data;
     }
