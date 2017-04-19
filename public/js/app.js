@@ -39621,14 +39621,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "panel-heading",
     class: {
-      important: _vm.element.last_minute
+      important: parseInt(_vm.element.last_minute)
     },
     on: {
       "click": function($event) {
         _vm.showInfo = !_vm.showInfo
       }
     }
-  }, [_vm._v("\n     " + _vm._s(_vm.element.customer_name) + " "), _c('div', {
+  }, [_c('span', {
+    staticClass: "client"
+  }, [_vm._v(_vm._s(_vm.element.customer_name))]), _vm._v(" "), _c('div', {
     staticClass: "is-pulled-right "
   }, [_c('span', {
     directives: [{
@@ -39640,7 +39642,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "tag is-info is-small"
   }, [_vm._v(" Total: $" + _vm._s(_vm.getPrice(_vm.element)))]), _vm._v(" "), _c('span', {
     staticClass: "tag is-success"
-  }, [_vm._v("People: " + _vm._s(_vm.getPeople(_vm.element)) + " ")]), _vm._v(" "), (_vm.element.last_minute) ? _c('span', {
+  }, [_vm._v("People: " + _vm._s(_vm.getPeople(_vm.element)) + " ")]), _vm._v(" "), (parseInt(_vm.element.last_minute)) ? _c('span', {
     directives: [{
       name: "show",
       rawName: "v-show",
