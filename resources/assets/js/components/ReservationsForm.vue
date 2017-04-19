@@ -304,7 +304,7 @@
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control is-expanded has-icon">
-                    <input class="input" type="text" placeholder="Rate per Person" v-model.number="form.rate" @keydown="errors.rate = []">
+                    <input class="input" type="text" placeholder="Rate per Person" v-model="form.rate" @keydown="errors.rate = []">
                      <span class="icon is-small">
                       <i class="fa fa-usd"></i>
                     </span>
@@ -331,7 +331,7 @@
                 <div class="field ">
                   <div class="control is-expanded">
                   <div class="select is-fullwidth">
-                   <select class="input " style="width: 100%;" id="status" name="status" v-model.number="form.status" @keydown="errors.status = []">
+                   <select class="input " style="width: 100%;" id="status" name="status" v-model="form.status" @keydown="errors.status = []">
                           
                               <option value="0"></option>
                               <option :value="item.value" v-for="item in statuses"> {{ item.text }}</option>
@@ -374,7 +374,7 @@
                 <div class="field is-narrow">
                   <div class="control">
                     <label class="checkbox">
-                      <input type="checkbox" name="last_minute" v-model.number="form.last_minute" value="1">
+                      <input type="checkbox" name="last_minute" v-model="form.last_minute" value="1">
                       (Important)
                     </label>
                     
@@ -566,12 +566,12 @@
          
               
               this.form = reservation
-              /*this.form.adults = parseInt(this.form.adults)
-              this.form.children = parseInt(this.form.adults)
-              this.form.infants = parseInt(this.form.adults)
-              this.form.baby_seat = parseInt(this.form.adults)
+              this.form.adults = parseInt(this.form.adults)
+              this.form.children = parseInt(this.form.children)
+              this.form.infants = parseInt(this.form.infants)
+              this.form.baby_seat = parseInt(this.form.baby_seat)
               this.form.last_minute = parseInt(this.form.last_minute)
-              this.form.status = parseInt(this.form.status)*/
+              this.form.status = parseInt(this.form.status)
               
               this.pickertime = {
                 HH:reservation.time.split(":")[0],
