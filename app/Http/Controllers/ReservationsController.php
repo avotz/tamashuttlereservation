@@ -88,9 +88,11 @@ class ReservationsController extends Controller
     public function cancel($id)
     {
       
-        $reservation = \DB::table('reservations')
-            ->where('id', $id)
-            ->update(['status' => -1]);   
+        $reservation = $this->reservationRepo->findById($id);
+        $reservation->status = -1;
+        $reservation->save();
+
+            logInfo(auth()->user(), 'Se canceló la reservación #'. $reservation->id.', fecha: '. $reservation->date .', cliente: '. $reservation->customer_name  );  
 
         return  $reservation;
 
