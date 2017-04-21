@@ -64,29 +64,7 @@
                 <label class="label">Pickup</label>
               </div>
               <div class="field-body">
-                  <!-- <div class="columns">
-                    <div class="column is-half">
-                      <div class="control is-expanded">
-                        <div class="is-fullwidth">
-                          <select-destinations @pickup="onSelectPickup" type="pickup" ></select-destinations>
-                         <form-error v-if="errors.pickup" :errors="errors" >
-                            {{ errors.pickup[0] }}
-                        </form-error>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="control ">
-                        <input class="input" type="text" placeholder="Pickup number or N/A"   v-model="form.pickup_number">
-                        <form-error v-if="errors.pickup_number" :errors="errors" >
-                            {{ errors.pickup_number[0] }}
-                        </form-error>
-                        
-                      </div>
-                    </div>
-                    
-                  </div> -->
+              
                 <div class="field is-grouped">
                   <div class="control is-expanded">
                     
@@ -98,18 +76,7 @@
                     
                   </div>
                 </div>
-                
-                <!-- <div class="field">
-                  <div class="control ">
-                    <input class="input" type="text" placeholder="Pickup number or N/A"   v-model="form.pickup_number">
-                    <form-error v-if="errors.pickup_number" :errors="errors" >
-                        {{ errors.pickup_number[0] }}
-                    </form-error>
-                    
-                  </div>
-                  
-                </div> -->
-
+       
               </div>
             </div>
            <div class="field is-horizontal">
@@ -262,23 +229,6 @@
                
               </div>
             </div>
-
-             <!-- <div class="field is-horizontal">
-              <div class="field-label is-normal">
-                <label class="label">Email</label>
-              </div>
-              <div class="field-body">
-                <div class="field is-grouped">
-                  <div class="control is-expanded">
-                    <input class="input" type="email" placeholder="Customer's email" v-model="form.customer_email" @keydown="errors.customer_email = []">
-                     <form-error v-if="errors.customer_email" :errors="errors" >
-                        {{ errors.customer_email[0] }}
-                    </form-error>
-                  </div>
-                </div>
-               
-              </div>
-            </div> -->
 
              <div class="field is-horizontal">
               <div class="field-label is-normal">

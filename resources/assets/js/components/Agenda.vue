@@ -32,7 +32,7 @@
 		             
 		                <label class="label">Reservations</label>
 		             
-		              
+		              		
 		                  <div class="control is-expanded " :class="{ active: maxReservation }">
 		                  
 		                   <draggable v-model="travel.reservations" class="dragArea dragAreatravel" :options="{group:'reservations'}" @end="onEnd">
@@ -73,6 +73,31 @@
 				<div class="content">
 					
 					<h2>Reservations</h2>
+				</div>
+				<div class="panel filters">
+					<div class="panel-heading">
+						Search
+					</div>
+					<div class="panel-block">
+						
+				        <div class="field is-horizontal" >
+			                <div class="field-body">
+							    <div class="field is-grouped">
+							      <div class="control is-expanded has-icon">
+							        <input type="text" name="q" class="input" placeholder="By client..." v-model="search" @keyup="onSearch">
+							         <span class="icon is-small">
+								        <i class="fa fa-search"></i>
+								      </span>
+							      </div>
+							    </div>
+							    
+							    
+							 </div>
+				              
+				          
+				        </div>
+
+					</div>
 				</div>
 
 		      <draggable v-model="reservations" class="dragArea" :options="{group:'reservations'}"  >
@@ -147,6 +172,7 @@
         			reservationsDeleted:[]
         			
         		},
+        		search:'',
         		total_people:0,
         		max_capacity:0
         		
@@ -308,13 +334,21 @@
                                 //this.errors = response;
                     });
         	},
+        	onSearch:_.debounce(function(search) {
+	           
+
+	         this.getReservations();
+					
+
+		    }, 500),
+
         	getReservations(page) {
 				if (typeof page === 'undefined') {
 					page = 1;
 				}
 
 				// Using vue-resource as an example
-				axios.get('/reservations/list?except=-1&assigned=0&page=' + page).then((response) => {
+				axios.get('/reservations/list?except=-1&assigned=0&q='+ this.search +'&page=' + page).then((response) => {
                       
                      
                       

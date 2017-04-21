@@ -3,6 +3,31 @@
 		<div class="content">
 			<h2>Reservations</h2>
 		</div>
+		<div class="panel filters">
+			<div class="panel-heading">
+				Search
+			</div>
+			<div class="panel-block">
+				
+		        <div class="field is-horizontal" >
+	                <div class="field-body">
+					    <div class="field is-grouped">
+					      <div class="control is-expanded has-icon">
+					        <input type="text" name="q" class="input" placeholder="By client..." v-model="search" @keyup="onSearch">
+					         <span class="icon is-small">
+						        <i class="fa fa-search"></i>
+						      </span>
+					      </div>
+					    </div>
+					    
+					    
+					 </div>
+		              
+		          
+		        </div>
+
+			</div>
+		</div>
 	   <div id="no-more-tables">
 		   <table class="table">
 			  <thead>
@@ -72,6 +97,7 @@
         data () {
 	        return {
 	 		  data:{},
+	 		  search:"",
 	          //items:[],
 	          loader:false,
 	         
@@ -80,14 +106,22 @@
 	      },
 	      
         methods: {
-        	 getResults(page) {
+        	 onSearch:_.debounce(function(search) {
+	           
+
+	         this.getResults();
+					
+
+		    }, 500),
+
+        	getResults(page) {
 				if (typeof page === 'undefined') {
 					page = 1;
 				}
 				
 
 				// Using vue-resource as an example
-				axios.get('/reservations/list?page=' + page).then((response) => {
+				axios.get('/reservations/list?q='+ this.search +'&page=' + page).then((response) => {
                       
                       this.data = response.data;
                       
