@@ -68,8 +68,8 @@ class ReservationRepository extends DbRepository{
 
         if (! count($search) > 0) return $this->model
                                                     ->orderBy('last_minute', 'desc')
+                                                    ->orderBy('assigned', 'asc')
                                                     ->orderBy($order , $dir)
-                                                    //->orderBy('time', 'asc')
                                                     ->paginate($this->limit);
 
         if (isset($search['q']) && trim($search['q']))
@@ -106,6 +106,7 @@ class ReservationRepository extends DbRepository{
 
 
         return $reservations->orderBy('last_minute', 'desc')
+                            ->orderBy('assigned', 'asc')
                             ->orderBy($order , $dir)
         ->paginate($this->limit);
 
