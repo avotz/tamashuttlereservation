@@ -44,6 +44,10 @@ class TravelRepository extends DbRepository{
              \DB::table('reservations')
             ->whereIn('id', $idsReservations)
             ->update(['assigned' => 1]);
+
+            \DB::table('reservations')
+            ->whereIn('id', $idsReservations)
+            ->update(['last_minute' => 0]);
         
          }
         
@@ -75,6 +79,10 @@ class TravelRepository extends DbRepository{
              \DB::table('reservations')
             ->whereIn('id', $idsReservations)
             ->update(['assigned' => 1]);
+            
+            \DB::table('reservations')
+            ->whereIn('id', $idsReservations)
+            ->update(['last_minute' => 0]);
         
          }
           if(isset($data['reservationsDeleted']))
