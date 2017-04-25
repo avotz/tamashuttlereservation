@@ -119,9 +119,10 @@ class TravelRepository extends DbRepository{
             // ->where('vehicles.id','=', $search['vehicle'])
             // ->orderBy('reservations.'.$order, $dir)
             //->get();
-        dd($travels->get()->all());
+        
          if (isset($search['date']) && trim($search['date']))
         {
+            dd($search['date']);
             $travels = $travels->whereDate('reservations.date', $search['date']);
           
         } 
