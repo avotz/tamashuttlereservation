@@ -123,14 +123,14 @@ class TravelRepository extends DbRepository{
          if (isset($search['date']) && trim($search['date']))
         {
             //dd($search['date']);
-            //$travels = $travels->whereDate('reservations.date', $search['date']);
-            $date1 = new Carbon($search['date']);
+            $travels = $travels->whereDate('reservations.date', $search['date']);
+            /*$date1 = new Carbon($search['date']);
             $date2 = (isset($search['date2']) && $search['date2'] != "") ? $search['date2'] : $search['date'];
             $date2 = new Carbon($date2);
-            
+            //dd($date2->endOfDay());
          
             $travels = $travels->where([['reservations.date', '>=', $date1],
-                    ['reservations.date', '<=', $date2->endOfDay()]]);
+                    ['reservations.date', '<=', $date2->endOfDay()]]);*/
           
         } 
             
