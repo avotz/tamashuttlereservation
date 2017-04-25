@@ -66,7 +66,7 @@
 			      <td data-title="Client">{{ item.customer_name }}</td>
 			      <td data-title="People">{{ parseInt(item.adults) + parseInt(item.children) }}</td>
 			      <td>
-			      	<a href="#" @click="edit(item)" class="button is-primary is-small" v-show="item.status != -1 && !item.assigned">Edit</a>
+			      	<a href="#" @click="edit(item)" class="button is-primary is-small" v-show="item.status != -1 && !parseInt(item.assigned)">Edit</a>
 			      	<a href="#" @click="cancel(item)" class="button is-warning is-small" v-show="item.status != -1">Cancel</a>
 			      	<a href="#" @click="remove(item)" class="delete" v-show="isAdmin"></a>
 			      </td>
