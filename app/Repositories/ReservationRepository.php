@@ -64,11 +64,12 @@ class ReservationRepository extends DbRepository{
     public function findAll($search = null)
     {
         $order = 'date';
-        $dir = 'asc';
+        $dir = 'desc';
 
         if (! count($search) > 0) return $this->model
                                                     ->orderBy('last_minute', 'desc')
-                                                    ->orderBy('assigned', 'asc')
+                                                    //->orderBy('status', 'desc')
+                                                    //->orderBy('assigned', 'asc')
                                                     ->orderBy($order , $dir)
                                                     ->paginate($this->limit);
 
@@ -106,7 +107,8 @@ class ReservationRepository extends DbRepository{
 
 
         return $reservations->orderBy('last_minute', 'desc')
-                            ->orderBy('assigned', 'asc')
+                            //->orderBy('status', 'desc')
+                            //->orderBy('assigned', 'asc')
                             ->orderBy($order , $dir)
         ->paginate($this->limit);
 

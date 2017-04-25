@@ -90,6 +90,7 @@ class ReservationsController extends Controller
       
         $reservation = $this->reservationRepo->findById($id);
         $reservation->status = -1;
+        $reservation->last_minute = 0;
         $reservation->save();
 
             logInfo(auth()->user(), 'Se canceló la reservación #'. $reservation->id.', fecha: '. $reservation->date .', cliente: '. $reservation->customer_name  );  
