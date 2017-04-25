@@ -44,7 +44,7 @@ class TravelsController extends Controller
          $search['vehicle'] =(trim(request('vehicle')) != '') ? request('vehicle') : '';
        
         $travels = $this->travelRepo->findAll($search);
-
+        dd($travels);
         //$vehicles = $this->vehicleRepo->findAll();
         $vehicles =  Vehicle::select('name','id','maximum_capacity')->get();
       
