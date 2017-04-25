@@ -2,11 +2,12 @@
   <div class="container">
     <div class="nav-left">
       <a href="/" class="nav-item">
-        <img src="/img/logo.jpg" alt="Tamarindo logo">
+        <img src="/img/logo.png" alt="Tamarindo logo">
       </a>
        @if (!Auth::guest())
+            <a href="/agenda" class="nav-item is-tab is-hidden-mobile {{ set_active('agenda') }}">Agenda</a>
             @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
-              <a href="/agenda" class="nav-item is-tab is-hidden-mobile {{ set_active('agenda') }}">Agenda</a>
+              <a href="/operations" class="nav-item is-tab is-hidden-mobile {{ set_active('operations') }}">Operations</a>
             @endif
             <a href="/reservations" class="nav-item is-tab is-hidden-mobile {{ set_active('reservations') }}">Reservations</a>
            @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
@@ -23,8 +24,9 @@
     </span>
     <div class="nav-right nav-menu">
      @if (!Auth::guest())
+           <a href="/agenda" class="nav-item is-tab is-hidden-tablet {{ set_active('agenda') }}">Agenda</a>
            @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
-            <a class="nav-item is-tab is-hidden-tablet {{ set_active('/') }}">Agenda</a>
+            <a href="/operations" class="nav-item is-tab is-hidden-tablet {{ set_active('operations') }}">Operations</a>
            @endif
           <a href="/reservations" class="nav-item is-tab is-hidden-tablet {{ set_active('reservations') }}">Reservations</a>
           @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))

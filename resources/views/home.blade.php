@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('styles')
 <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="{{ asset('css/vendor/tooltipster.bundle.min.css') }}">
 @endsection
 @section('content')
 <div class="content">
@@ -50,7 +51,7 @@
 					       <td data-title="Rate">{{ $travel->rate }}</td>
 					       <td data-title="$">{{ ($travel->adults + $travel->children) * $travel->rate }}</td>
 					       <td data-title="Status">{{ \Lang::get('utils.status.'. $travel->status)  }}</td>
-					       <td data-title="Notes">{{ $travel->notes }}</td>
+					       <td data-title="Notes">@if($travel->hidden_notes)<span class="tooltip" title="{{ $travel->hidden_notes }}"><i class="fa fa-eye"></i></span>@endif {{ $travel->notes }}</td>
 					      
 					    </tr>
 					    @endforeach
@@ -79,6 +80,7 @@
  <script src="{{ asset('js/vendor/jquery-2.2.3.min.js') }}"></script>
 
 <script src="https://unpkg.com/flatpickr"></script>
+ <script src="{{ asset('js/vendor/tooltipster.bundle.min.js') }}"></script>
 
 <!--  <script src="{{ asset('js/vendor/picker.js') }}"></script>
  <script src="{{ asset('js/vendor/picker.date.js') }}"></script>
@@ -93,6 +95,9 @@
  	 		onChange: function(selectedDates, dateStr, instance) {
 		       $('.filters').find('form').submit();
 		    },
+ 	 	});
+ 	 	$('.tooltip').tooltipster({
+ 	 		interactive: true
  	 	});
  	 	 /*$('.datepicker').datetimepicker({
             format:'YYYY-MM-DD',

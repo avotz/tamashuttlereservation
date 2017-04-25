@@ -315,6 +315,24 @@
                 </div>
               </div>
             </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Hidden Notes</label>
+              </div>
+              <div class="field-body">
+                <div class="field ">
+                  <div class="control is-expanded">
+                 
+                  <textarea class="textarea" placeholder="Hidden notes" v-model="form.hidden_notes"  @keydown="errors.hidden_notes = []"></textarea>
+                   
+
+                    <form-error v-if="errors.hidden_notes" :errors="errors" >
+                        {{ errors.hidden_notes[0] }}
+                    </form-error>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="field is-horizontal">
               <div class="field-label">
@@ -346,6 +364,7 @@
                     <button class="button is-primary" @click="save()">
                       Save Reservation
                     </button>
+                    <img v-show="loading" src="/img/loading.gif" alt="Loading" />
                     
                   </div>
                 </div>
@@ -399,6 +418,7 @@
                     service_color: '',
                     status: 0,
                     notes: '',
+                    hidden_notes: ''
                   },
                   
                   statuses:[
@@ -457,7 +477,8 @@
                 fpOptions:{
                   minDate:"today"
                 },
-                errors:[]
+                errors:[],
+                loading:false
 
                
               
@@ -570,7 +591,7 @@
           },
 
           save(){ 
-              
+               this.loading = true;
 
               if(this.form.id)
               {
@@ -582,11 +603,12 @@
                     
                      bus.$emit('alert', 'Reservation Saved','success');
                      
-                     this.clearForm()
-                    
+                     this.clearForm();
+                     this.loading = false;
                   }, (response) => {
                               // console.log(response.response.data)
                               this.errors = response.response.data;
+                              this.loading = false;
                   });
 
 
@@ -599,12 +621,14 @@
                       bus.$emit('updateListReservations', response.data);
                       bus.$emit('alert', 'Reservation Saved','success');
                        //console.log(response);
-                       this.clearForm()
+                       this.clearForm();
+                      this.loading = false;
                       
                     }, (response) => {
                      
                                 // console.log(response.response.data)
                                 this.errors = response.response.data;
+                                 this.loading = false;
                     });
             }
 

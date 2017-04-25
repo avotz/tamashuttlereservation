@@ -130,6 +130,11 @@ class TravelRepository extends DbRepository{
         {
             $travels = $travels->where('vehicles.id','=', $search['vehicle']);
         } 
+
+        if (isset($search['q']) && trim($search['q']))
+        {
+            $travels = $travels->where('reservations.customer_name','like', '%' .$search['q']. '%');
+        } 
         
         
         return paginate($travels->orderBy('reservations.'.$order, $dir)->get()->all(), $this->limit);
@@ -156,6 +161,54 @@ class TravelRepository extends DbRepository{
 
 
         return $travels->orderBy($order , $dir)->paginate($this->limit);*/
+
+    }
+
+    /**
+     * Find all the users for the admin panel
+     * @internal param $travelname
+     * @param null $search
+     * @return mixed
+     */
+    public function reportExcel($search = null)
+    {
+        $order = 'date';
+        $dir = 'asc';
+        $travels = $this->model;
+
+        
+        
+        $travels =  $travels->selectRaw('travels.id as travel_id, reservations.*, vehicles.name as vehicle, vehicles.maximum_capacity')
+            ->join('reservation_travel', 'reservation_travel.travel_id', '=', 'travels.id')
+            ->join('reservations', 'reservations.id', '=', 'reservation_travel.reservation_id')
+
+            ->join('travel_vehicle', 'travel_vehicle.travel_id', '=', 'travels.id')
+             ->join('vehicles', 'vehicles.id', '=', 'travel_vehicle.vehicle_id');
+             //->groupBy('travels.id')
+            // ->where('vehicles.id','=', $search['vehicle'])
+            // ->orderBy('reservations.'.$order, $dir)
+            //->get();
+
+         if (isset($search['exp-date']) && trim($search['exp-date']))
+        {
+            $travels = $travels->whereDate('reservations.date', $search['exp-date']);
+           
+        } 
+            
+         if (isset($search['exp-vehicle']) && trim($search['exp-vehicle']))
+        {
+            $travels = $travels->where('vehicles.id','=', $search['exp-vehicle']);
+        } 
+
+        if (isset($search['exp-q']) && trim($search['exp-q']))
+        {
+            $travels = $travels->where('reservations.customer_name','like', '%' .$search['exp-q']. '%');
+        } 
+        
+        
+        return $travels->orderBy('reservations.'.$order, $dir)->get()->all();
+
+    
 
     }
 

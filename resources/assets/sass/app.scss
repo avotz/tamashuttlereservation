@@ -27,6 +27,18 @@ $purple: purple;
    #app .filters{
   	display:none;
   }
+  #app .tooltip{
+  	display:none;
+  }
+}
+.nav{
+	z-index: 5 !important;
+}
+.nav-item{
+	font-size: 0.8rem;
+}
+.tooltip{
+	cursor:pointer;
 }
 .table{
 	.header-vehicle{

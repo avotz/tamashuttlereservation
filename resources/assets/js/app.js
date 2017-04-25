@@ -108,10 +108,27 @@ $(window).on('load', function() {
     $('select[name=role]').change(submitForm);
     $('select[name=vehicle]').change(submitForm);
 
+     $('select[name=vehicle]').change(submitForm);
+     $('input[name="q"]').on('keydown', function(e) {
+        if (e.which == 13) {
+            submitForm();
+        }
+    });
+
     $('.nav-toggle').on('click',function (e) {
        $('.nav-right.nav-menu').toggleClass('is-active');
     });
 
+    /* $(".btn-export").on('click',function (e) {
+      
+         e.preventDefault();
+
+         $('.filters').find('form input[name="export"]').val(1);
+         
+         submitForm();
+     });*/
+   
+    
      $(".btn-print").on('click',function (e) {
          e.preventDefault();
          

@@ -13,7 +13,9 @@
 
 //travels
 Route::get('/', 'TravelsController@index');
+Route::get('/agenda', 'TravelsController@index');
 Route::get('/travels/list', 'TravelsController@getTravels');
+Route::get('/travels/export', 'TravelsController@export');
 Route::resource('travels', 'TravelsController');
 
 //reservations
@@ -28,7 +30,7 @@ Route::get('/destinations/list', 'DestinationsController@getDestinations');
 Route::middleware('authByRole:admin')->group(function ()
 {
 	//Agenda
-	Route::get('/agenda', 'AgendaController@index');
+	Route::get('/operations', 'AgendaController@index');
 	Route::get('/vehicles/list', 'VehiclesController@getVehicles');
     
 

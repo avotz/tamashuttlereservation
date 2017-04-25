@@ -59,9 +59,10 @@
 		             
 		              
 		                  <div class="control">
-		                    <button class="button is-primary " @click="save()" :disabled="countReservation < 1 || (maxReservation && total_people > max_capacity)">
+		                    <button class="button is-primary " @click="save()" :disabled="countReservation < 1 || (maxReservation && total_people > max_capacity) || loading">
 		                      Save
 		                    </button>
+		                    <img v-show="loading" src="/img/loading.gif" alt="Loading" />
 		                    
 		                  </div>
 		               
@@ -174,7 +175,8 @@
         		},
         		search:'',
         		total_people:0,
-        		max_capacity:0
+        		max_capacity:0,
+        		loading:false
         		
 
         	}
@@ -248,7 +250,8 @@
         	},
         
         	save(){
-        		 
+        		 this.loading = true;
+
         		 if(this.travel.id)
               {
                     axios.put('/travels/'+ this.travel.id, this.travel ).then((response) => {
@@ -260,17 +263,19 @@
                      this.getTravels();
 
                      bus.$emit('alert', 'Travel Saved','success');
+
                      
                      for(var res in this.reservationsNoAssigned)
                      {
 
                      	this.updateAssigned(res, 0)
                      }
-                     this.clearForm()
-                    
+                     this.clearForm();
+                     this.loading = false;
                   }, (response) => {
                               // console.log(response.response.data)
                               this.errors = response.response.data;
+                              this.loading = false;
                   });
 
 
@@ -284,12 +289,13 @@
 
                        bus.$emit('alert', 'Travel Saved','success');
                       
-                       this.clearForm()
-                      
+                       this.clearForm();
+                       this.loading = false;
                     }, (response) => {
                      
                                 // console.log(response.response.data)
                                 this.errors = response.response.data;
+                                this.loading = false;
                     });
         		}
         	},

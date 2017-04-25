@@ -1,13 +1,26 @@
+
 <div class="panel filters">
+	
 	<div class="panel-heading">
 		Search 
 		<div class="is-pulled-right">
 	        <button class="button is-small is-info is-outlined btn-print">Print</button>
+	        <button type="submit" class="button is-small is-success is-outlined btn-export" form="form-export" formaction="{!! url('/travels/export') !!}">Excel</button>
+	        
+	        <form action="/travels/export" method="GET" id="form-export">
+			  {{ csrf_field() }}
+				<input type="hidden" name="exp-date" value="{{ isset($search) ? $search['date'] : '' }}">
+				<input type="hidden" name="exp-vehicle" value="{{ isset($search) ? $search['vehicle'] : '' }}">
+				<input type="hidden" name="exp-q" value="{{ isset($search) ? $search['q'] : '' }}">
+			</form>
+	         	
+	         
 	    </div>
 	</div>
+
 	<div class="panel-block">
-		<form action="/" method="GET">
-          
+			<form action="/" method="GET">
+               
                <div class="field is-horizontal" >
 	                <div class="field-body">
 					    <div class="field is-grouped">
@@ -32,6 +45,12 @@
 					      </div>
 					     
 					    </div>
+					    <div class="field ">
+					      <div class="control is-expanded ">
+					        <input type="text" name="q" class="input " placeholder="By client..." value="{{ isset($search) ? $search['q'] : '' }}">
+					         
+					      </div>
+					    </div>
 					    
 					 </div>
 
@@ -39,7 +58,8 @@
 
          
          
-      </form>
+     
       
 	</div>
+	</form>
 </div>
