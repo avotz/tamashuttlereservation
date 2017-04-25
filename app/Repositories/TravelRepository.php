@@ -122,7 +122,7 @@ class TravelRepository extends DbRepository{
         
          if (isset($search['date']) && trim($search['date']))
         {
-            dd($search['date']);
+            //dd($search['date']);
             $travels = $travels->whereDate('reservations.date', $search['date']);
           
         } 

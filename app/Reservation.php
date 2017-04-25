@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     protected $guarded = ['errors'];
-
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'date'
+    ];
     public function scopeSearch($query, $search)
     {
         return $query->where(function ($query) use ($search)
