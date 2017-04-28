@@ -38,6 +38,8 @@
 			      <th><abbr title="Important">Important</abbr></th>
 			      <th><abbr title="Client">Client</abbr></th>
 			      <th><abbr title="People">People</abbr></th>
+			      <th><abbr title="Hidden notes">Hidden notes</abbr></th>
+			      <th><abbr title="Notes">Notes</abbr></th>
 			      <th></th>
 			    </tr>
 			  </thead>
@@ -72,6 +74,8 @@
 			      </td>
 			      <td data-title="Client">{{ item.customer_name }}</td>
 			      <td data-title="People">{{ parseInt(item.adults) + parseInt(item.children) }}</td>
+			      <td data-title="Hidden notes">{{ item.hidden_notes }}</td>
+			      <td data-title="Notes">{{ item.notes }}</td>
 			      <td>
 			      	<a href="#" @click="edit(item)" class="button is-primary is-small" v-show="item.status != -1 && !parseInt(item.assigned)">Edit</a>
 			      	<a href="#" @click="cancel(item)" class="button is-warning is-small" v-show="item.status != -1">Cancel</a>

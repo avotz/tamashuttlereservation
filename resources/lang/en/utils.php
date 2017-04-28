@@ -2,6 +2,7 @@
   
 return [
     'status'  => [
+        '-1' => 'Canceled',
         '0' => '',
         '1' => 'Confirmed',
         '2' => 'Not Confirmed',
@@ -18,6 +19,7 @@ return [
         '4' => "warning",
         '5' => "yellow",
         '6' => "purple",
+        '7' => "success",
     ],
     'type'  => [
         '0' => '',

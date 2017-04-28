@@ -9,19 +9,17 @@
 @endsection
 @section('content')
 
-	 <div class="columns is-desktop">
-        	<div class="column">
+	
 
 			    <reservations-form></reservations-form>
-			</div>
-			<div class="column ">
+		
 				
 				<reservations-list :is-admin="{{ (auth()->user()->hasRole('admin')) ? 1 : 0 }}"></reservations-list>
 					
 				
 			   
-			</div>
-        </div>
+			
+       
 
     
        

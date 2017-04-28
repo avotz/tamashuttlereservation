@@ -153,6 +153,15 @@ class ReservationRepository extends DbRepository{
         if(empty($data['infants']) || is_null($data['infants']))
             $data = array_except($data, array('infants'));
 
+           if(! empty($data['children']) && !is_null($data['children'])){
+                
+                $roundTimeArray = explode(':', $data['round_time']);
+
+
+               $dt = Carbon::parse($data['round_date']);
+               $dt->setTime($roundTimeArray[0], $roundTimeArray[1], 0);
+               $data['round_date'] = $dt;
+            }
               
 
         return $data;

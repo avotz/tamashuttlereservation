@@ -14,7 +14,11 @@ class Reservation extends Model
         {
             $query->where('customer_name', 'like', '%' . $search . '%')
                   ->orWhere('customer_email', 'like', '%' . $search . '%')
-                  ->orWhere('customer_phone', 'like', '%' . $search . '%');
+                  ->orWhere('customer_phone', 'like', '%' . $search . '%')
+                  ->orWhere('pickup', 'like', '%' . $search . '%')
+                  ->orWhere('flight', 'like', '%' . $search . '%')
+                  ->orWhere('notes', 'like', '%' . $search . '%')
+                  ->orWhere('hidden_notes', 'like', '%' . $search . '%');
         });
     }
     public function scopeAssigned($query, $search)
