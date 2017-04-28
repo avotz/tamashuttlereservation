@@ -25,7 +25,7 @@
 	                <div class="field-body">
 					    <div class="field is-grouped">
 					      <div class="control is-expanded has-icon">
-					        <input type="text" name="date" class="input date" placeholder="By name..." value="{{ isset($search) ? $search['date'] : '' }}">
+					        <input type="text" name="date" class="input date" placeholder="By date..." value="{{ isset($search) ? $search['date'] : '' }}">
 					         <span class="icon is-small">
 						        <i class="fa fa-calendar"></i>
 						      </span>
@@ -47,7 +47,7 @@
 					    </div>
 					    <div class="field ">
 					      <div class="control is-expanded ">
-					        <input type="text" name="q" class="input " placeholder="By client..." value="{{ isset($search) ? $search['q'] : '' }}">
+					        <input type="text" name="q" class="input " placeholder="..." value="{{ isset($search) ? $search['q'] : '' }}">
 					         
 					      </div>
 					    </div>
