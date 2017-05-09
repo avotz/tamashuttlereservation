@@ -45,6 +45,12 @@
 	  </a>
 	  <a class="panel-block">
 	    <span class="panel-icon">
+	      <i class="fa fa-plane"></i>
+	    </span>
+	     Flight: {{ element.flight }} 
+	  </a>
+	  <a class="panel-block">
+	    <span class="panel-icon">
 	      <i class="fa fa-check-square-o"></i>
 	    </span>
 	     {{ getNameFromStatus(element.status) }} 
