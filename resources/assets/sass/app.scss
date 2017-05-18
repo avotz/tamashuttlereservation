@@ -49,6 +49,9 @@ $purple: purple;
 	.color-reservation{
 		color:black;
 	}
+	.color-reservation a{
+		color:black;
+	}
 	.color-reservation.is-default{
 		background-color: rgba($default,.5);
 		

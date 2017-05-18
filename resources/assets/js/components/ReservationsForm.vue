@@ -183,7 +183,7 @@
                     </div>
                   </div>
 
-                  <div class="field is-horizontal">
+                  <!-- <div class="field is-horizontal">
                     <div class="field-label">
                       <label class="label">Type</label>
                     </div>
@@ -205,15 +205,15 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="field is-horizontal" v-show="form.type_service == 'Round Trip'">
+                  </div> -->
+                  <!-- <div class="field is-horizontal" v-show="form.type_service == 'Round Trip'">
                     <div class="field-label is-normal">
                       <label class="label">Return Date</label>
                     </div>
                     <div class="field-body">
                       <div class="field is-grouped">
                         <div class="control is-expanded calendarpicker">
-                          <!-- <input class="input datepicker" type="text" placeholder="yyyy-mm-dd"  @blur="updateDateInput($event.target.value)" v-model="form.date" @keydown="errors.date = []"> -->
+                         
                           <VueFlatpickr :options="fpOptions" v-model="form.round_date" @blur="errors.round_date = []" />
 
                            <form-error v-if="errors.round_date" :errors="errors" >
@@ -254,6 +254,26 @@
              
                     </div>
                   </div>
+                  <div class="field is-horizontal" v-show="form.type_service == 'Round Trip'">
+                    <div class="field-label is-normal">
+                      <label class="label">Return Drop Off</label>
+                    </div>
+                    <div class="field-body">
+                    
+                      <div class="field is-grouped">
+                        <div class="control is-expanded">
+                          
+                            <select-destinations @dropoff="onSelectRoundDropoff" type="dropoff"  @keydown="errors.round_dropoff = []"></select-destinations>
+                            <form-error v-if="errors.round_dropoff" :errors="errors" >
+                              {{ errors.round_dropoff[0] }}
+                          </form-error>
+                            
+                          
+                        </div>
+                      </div>
+             
+                    </div>
+                  </div> -->
                   <div class="field is-horizontal">
                     <div class="field-label is-normal">
                       <label class="label">Client</label>
@@ -585,6 +605,7 @@
                 customer_phone: '',
                 type_service: 'One Way',
                 round_pickup: '',
+                round_dropoff: '',
                 round_date: '',
                 round_time: '',
                 last_minute: 0,
@@ -667,6 +688,13 @@
            
               this.form.dropoff = destination;
               this.errors.dropoff = [];
+
+          },
+           onSelectRoundDropoff(destination){
+
+           
+              this.form.round_dropoff = destination;
+              this.errors.round_dropoff = [];
 
           },
 

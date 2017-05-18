@@ -30,6 +30,21 @@ class ReservationRepository extends DbRepository{
         $data = $this->prepareData($data);
        
         $reservation = $this->model->create($data);
+
+        /*if($reservation->type_service == "Round Trip")
+        {
+            $data['date'] = $reservation->round_date;
+            $data['time'] = $reservation->round_time;
+            $data['pickup'] = $reservation->round_pickup;
+            $data['dropoff'] = $reservation->round_dropoff;
+            $data['round_date'] = null;
+            $data['round_time'] = null;
+            $data['round_pickup'] = null;
+            $data['round_dropoff'] = null;
+            $data['type_service'] = 'One Way';
+            $data['notes'] = 'Reserva asociada a '.$reservation->date.' '.$reservation->customer_name;
+            $reservationRoundTrip = $this->model->create($data);
+        }*/
         
         return $reservation;
     }
@@ -80,6 +95,13 @@ class ReservationRepository extends DbRepository{
         {
             $reservations = $this->model;
         }
+
+         if (isset($search['date']) && trim($search['date']))
+        {
+            
+            $reservations = $reservations->whereDate('reservations.date', $search['date']);
+            
+        } 
 
         if (isset($search['assigned']) && $search['assigned'] != "")
         {
@@ -153,7 +175,7 @@ class ReservationRepository extends DbRepository{
         if(empty($data['infants']) || is_null($data['infants']))
             $data = array_except($data, array('infants'));
 
-           if(! empty($data['children']) && !is_null($data['children'])){
+           if(! empty($data['round_date']) && !is_null($data['round_date'])){
                 
                 $roundTimeArray = explode(':', $data['round_time']);
 

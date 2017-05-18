@@ -10,7 +10,23 @@
 			<div class="panel-block">
 				
 		        <div class="field is-horizontal" >
+
 	                <div class="field-body">
+	                	<div class="field has-addons">
+					      <div class="control">
+					        <VueFlatpickr :options="fpOptions" v-model="date" @blur="errors.date = []" @change="selectDate" />
+
+          
+					         <!--  <span class="icon is-small clear-date" @click="clearDate">
+						        <i class="fa fa-calendar"></i>
+						      </span>  -->
+					      </div>
+					       <div class="control">
+							    <a class="button is-info" @click="clearDate">
+							      X
+							    </a>
+						  </div>
+					    </div>
 					    <div class="field is-grouped">
 					      <div class="control is-expanded has-icon">
 					        <input type="text" name="q" class="input" placeholder="..." v-model="search" @keyup="onSearch">
@@ -45,7 +61,7 @@
 			  </thead>
 			  
 			  <tbody>
-			    <tr v-for="item in data.data">
+			    <tr v-for="item in data.data" class="color-reservation" :class="'is-'+getServiceColor(item.service_color)">
 			      <td data-title="Date"><a href="#" :title=" item.date ">{{ item.date }}</a>
 			      </td>
 			      <td data-title="Type">
@@ -98,25 +114,46 @@
 
    //import VuePaginator from 'vuejs-paginator'
    import LaravelPagination from 'laravel-vue-pagination'
+   import VueFlatpickr from 'vue-flatpickr';
+   import 'vue-flatpickr/theme/airbnb.css';
    
  export default {
         props: ['reservations','isAdmin'],
        
         components: {
-		    LaravelPagination: LaravelPagination
+		    LaravelPagination: LaravelPagination,
+		    VueFlatpickr: VueFlatpickr,
 		  },
         data () {
 	        return {
 	 		  data:{},
 	 		  search:"",
+	 		  date:"",
 	          //items:[],
 	          loader:false,
+	          service_color:['default','info','pink','success','warning','yellow','purple','success'],
+	          fpOptions:{
+                  //minDate:"today"
+                   onChange:this.selectDate,
+                   
+                },
 	         
 	          
 	        }
 	      },
 	      
         methods: {
+        	clearDate(){
+        		this.date = '';
+        		this.getResults();
+        	},
+        	
+        	selectDate(){
+        		 this.getResults();
+        	},
+        	getServiceColor(typeService) {
+        		return this.service_color[typeService];
+        	},
         	 onSearch:_.debounce(function(search) {
 	           
 
@@ -132,7 +169,7 @@
 				
 
 				// Using vue-resource as an example
-				axios.get('/reservations/list?q='+ this.search +'&page=' + page).then((response) => {
+				axios.get('/reservations/list?date='+ this.date +'&q='+ this.search +'&page=' + page).then((response) => {
                       
                       this.data = response.data;
                       
