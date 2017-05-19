@@ -134,6 +134,8 @@ $(window).on('load', function() {
          
             window.print();
         });
+
+     $(".select2").select2();
    
     
 

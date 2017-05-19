@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    protected $guarded = ['errors'];
+    protected $guarded = ['errors','regular_client'];
     
     public function scopeSearch($query, $search)
     {
@@ -26,6 +26,15 @@ class Reservation extends Model
         return $query->where(function ($query) use ($search)
         {
             $query->where('assigned', '=',  $search );
+
+        });
+    }
+    public function scopeHotel($query, $search)
+    {
+        return $query->where(function ($query) use ($search)
+        {
+            $query->where('credit_hotel', 1)
+                  ->where('hotel', 'like', '%' . $search . '%');
 
         });
     }

@@ -26,6 +26,10 @@ Route::resource('reservations', 'ReservationsController');
 
 //destinations
 Route::get('/destinations/list', 'DestinationsController@getDestinations');
+//clients
+Route::get('/clients/list', 'ClientsController@getClients');
+//hotels
+Route::get('/hotels/list', 'HotelsController@getHotels');
 
 Route::middleware('authByRole:admin')->group(function ()
 {
@@ -44,7 +48,11 @@ Route::middleware('authByRole:admin')->group(function ()
 	
 	Route::resource('destinations', 'DestinationsController');
 
+	//clients
+	Route::resource('clients', 'ClientsController');
 
+	//hotels
+	Route::resource('hotels', 'HotelsController');
 
 
 	

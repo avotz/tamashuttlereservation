@@ -182,6 +182,27 @@
                       </div>
                     </div>
                   </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label">
+                      <label class="label">Regular client</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field is-narrow">
+                        <div class="control">
+                          <label class="radio">
+                            <input type="radio" name="regular_client" v-model="regular_client" value="1" >
+                              Yes
+              
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="regular_client" v-model="regular_client" value="0">
+                              No 
+                          </label>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <!-- <div class="field is-horizontal">
                     <div class="field-label">
@@ -279,9 +300,23 @@
                       <label class="label">Client</label>
                     </div>
                     <div class="field-body">
-                      <div class="field is-grouped">
+                      <div class="field is-grouped" v-show="regular_client == 0 ">
                         <div class="control is-expanded">
                           <input class="input" type="text" placeholder="Customer's name" v-model="form.customer_name" @keydown="errors.customer_name = []">
+                           <form-error v-if="errors.customer_name" :errors="errors" >
+                              {{ errors.customer_name[0] }}
+                          </form-error>
+                        </div>
+                      </div>
+                      <div class="field is-grouped" v-show="regular_client == 1">
+                        <div class="control is-expanded">
+                           <v-select :debounce="250"
+                            :on-search="getClients"
+                            :options="optionsClients"
+                            :value.sync="selectedClient" 
+                            :on-change="selectClient"
+                            placeholder="Search Clients..."
+                            label="name"></v-select>
                            <form-error v-if="errors.customer_name" :errors="errors" >
                               {{ errors.customer_name[0] }}
                           </form-error>
@@ -405,6 +440,54 @@
                     </div>
                   </div>
                 </div>
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                      <label class="label">Credit Hotel</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field is-narrow">
+                        <div class="control">
+                          <label class="radio">
+                            <input type="radio" name="credit_hotel" v-model="form.credit_hotel" value="1" >
+                              Yes
+              
+                          </label>
+                          <label class="radio">
+                            <input type="radio" name="credit_hotel" v-model="form.credit_hotel" value="0">
+                              No 
+                          </label>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="field is-horizontal" v-show="form.credit_hotel == 1">
+                    <div class="field-label is-normal">
+                      <label class="label">Hotel</label>
+                    </div>
+                    <div class="field-body">
+                    
+                      <div class="field is-grouped">
+                        <div class="control is-expanded">
+                          
+                            <v-select :debounce="250"
+                            :on-search="getHotels"
+                            :options="optionsHotels"
+                            :value.sync="selectedHotel" 
+                            :on-change="selectHotel"
+                            placeholder="Search Hotel..."
+                            label="name"></v-select>
+                          
+                           <form-error v-if="errors.hotel" :errors="errors" >
+                              {{ errors.hotel[0] }}
+                          </form-error>
+                            
+                          
+                        </div>
+                      </div>
+             
+                    </div>
+                  </div>
 
                 <div class="field is-horizontal">
                   <div class="field-label">
@@ -455,18 +538,23 @@
     import VueFlatpickr from 'vue-flatpickr';
     import 'vue-flatpickr/theme/airbnb.css';
     import VueTimepicker from 'vue2-timepicker';
-
+    import vSelect from 'vue-select'
     export default {
         components:{
           SelectDestinations,
           FormError,
           VueFlatpickr,
-          VueTimepicker
+          VueTimepicker,
+          vSelect
          
       
         },
         data(){
            return {
+              optionsClients: [],
+              selectedClient: null,
+              optionsHotels: [],
+              selectedHotel: null,
               pickertime:{
                   HH:'00',
                   mm:'00'
@@ -499,8 +587,11 @@
                     service_color: '',
                     status: 0,
                     notes: '',
-                    hidden_notes: ''
+                    hidden_notes: '',
+                    credit_hotel:0,
+                    hotel:''
                   },
+                  regular_client: 0,
                   
                   statuses:[
                     {
@@ -581,6 +672,70 @@
           },
         },
         methods:{
+           selectClient(client) {
+  
+            if(client){
+              
+              this.selectedClient = client;
+              
+               this.form.customer_name = client.name;
+               this.form.customer_email = client.email;
+               this.form.customer_phone = client.phone;
+               this.form.pickup = client.pickup;
+
+               bus.$emit('editReservation', this.form);
+            }
+
+            
+          
+           },
+            getClients:_.debounce(function(search,loading) {
+                 loading(true)
+
+              
+                  axios.get('/clients/list',{
+                  params: {
+                    q: search
+                    
+                  }
+                }).then(response => {
+
+                  this.optionsClients = response.data
+                  loading(false)
+                });
+              
+
+            }, 500),
+            selectHotel(hotel) {
+  
+            if(hotel){
+              
+               this.selectedHotel = hotel;
+              
+               this.form.hotel = hotel.name;
+             
+            }
+
+            
+          
+           },
+            getHotels:_.debounce(function(search,loading) {
+                 loading(true)
+
+              
+                  axios.get('/hotels/list',{
+                  params: {
+                    q: search
+                    
+                  }
+                }).then(response => {
+
+                  this.optionsHotels = response.data
+                  loading(false)
+                });
+              
+
+            }, 500),
           clearForm(form){
 
             /*for(let field in form)
@@ -611,8 +766,11 @@
                 last_minute: 0,
                 service_color: '',
                 status: 0,
-                notes: ''
+                notes: '',
+                credit_hotel:0,
+                hotel:''
             };
+            this.regular_client = 0;
             this.errors = [];
             this.pickertime = {
                   HH:'00',
@@ -626,8 +784,7 @@
 
           },
           edit(reservation){
-
-         
+            
               
               this.form = reservation
               this.form.adults = parseInt(this.form.adults)

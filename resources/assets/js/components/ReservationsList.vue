@@ -17,7 +17,7 @@
 					        <VueFlatpickr :options="fpOptions" v-model="date" @blur="errors.date = []" @change="selectDate" />
 
           
-					         <!--  <span class="icon is-small clear-date" @click="clearDate">
+					         <!--  <span class="icon is-small clear-date">
 						        <i class="fa fa-calendar"></i>
 						      </span>  -->
 					      </div>
@@ -50,10 +50,10 @@
 			    <tr>
 			      
 			      <th>Date</th>
-			      <th>Type</th>
 			      <th><abbr title="Important">Important</abbr></th>
 			      <th><abbr title="Client">Client</abbr></th>
 			      <th><abbr title="People">People</abbr></th>
+			      <th>Total</th>
 			      <th><abbr title="Hidden notes">Hidden notes</abbr></th>
 			      <th><abbr title="Notes">Notes</abbr></th>
 			      <th></th>
@@ -63,13 +63,6 @@
 			  <tbody>
 			    <tr v-for="item in data.data" class="color-reservation" :class="'is-'+getServiceColor(item.service_color)">
 			      <td data-title="Date"><a href="#" :title=" item.date ">{{ item.date }}</a>
-			      </td>
-			      <td data-title="Type">
-					
-					<span class="tag is-info" v-if="item.type_service == 'One Way'"><i class="fa fa-long-arrow-right"  title="One Way"></i></span>
-					<span class="tag is-warning" v-else>
-					<i class="fa fa-undo" title="Round Trip"></i></span>
-					
 			      </td>
 			     
 			      <td data-title="Important">
@@ -90,6 +83,10 @@
 			      </td>
 			      <td data-title="Client">{{ item.customer_name }}</td>
 			      <td data-title="People">{{ parseInt(item.adults) + parseInt(item.children) }}</td>
+			      <td data-title="Total">
+					${{ getTotal(parseInt(item.adults) + parseInt(item.children), item.rate) }}
+					
+			      </td>
 			      <td data-title="Hidden notes">{{ item.hidden_notes }}</td>
 			      <td data-title="Notes">{{ item.notes }}</td>
 			      <td>
@@ -137,12 +134,20 @@
                    onChange:this.selectDate,
                    
                 },
+               totalFinal:0
 	         
 	          
 	        }
 	      },
 	      
         methods: {
+        	getTotal(people, rate){
+	            //let persons =parseInt((this.form.adults) ? this.form.adults : 0 ) + parseInt((this.form.children) ? this.form.children : 0);
+	            let total = rate * people;//(this.form.rate) ? this.form.rate : 0;
+	            
+	            return total;
+
+	          },
         	clearDate(){
         		this.date = '';
         		this.getResults();

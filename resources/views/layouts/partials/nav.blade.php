@@ -13,6 +13,8 @@
            @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
             <a href="/destinations" class="nav-item is-tab is-hidden-mobile {{ set_active('destinations') }}" >Destinations</a>
             <a href="/vehicles" class="nav-item is-tab is-hidden-mobile {{ set_active('vehicles') }}">Vehicles</a>
+            <a href="/clients" class="nav-item is-tab is-hidden-mobile {{ set_active('clients') }}">Clients</a>
+            <a href="/hotels" class="nav-item is-tab is-hidden-mobile {{ set_active('hotels') }}">Hotels</a>
             <a href="/users" class="nav-item is-tab is-hidden-mobile {{ set_active('users') }}">Users</a>
            @endif
       @endif
@@ -32,6 +34,8 @@
           @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('subadmin'))
             <a href="/destinations" class="nav-item is-tab is-hidden-tablet {{ set_active('destinations') }}">Destinations</a>
             <a href="/vehicles" class="nav-item is-tab is-hidden-tablet {{ set_active('vehicles') }}" >Vehicles</a>
+            <a href="/clients" class="nav-item is-tab is-hidden-tablet {{ set_active('clients') }}">Clients</a>
+            <a href="/hotels" class="nav-item is-tab is-hidden-tablet {{ set_active('hotels') }}">Hotels</a>
             <a href="/users" class="nav-item is-tab is-hidden-tablet {{ set_active('users') }}">Users</a>
           @endif
       @endif
