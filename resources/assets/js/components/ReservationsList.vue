@@ -148,6 +148,17 @@
 	            return total;
 
 	          },
+	        getTotalFinal(){
+	        	
+	        	let total = 0;
+	        	
+	        	/*debugger
+	        	for (var i = this.data.length - 1; i >= 0; i--) {
+	        		total += this.getTotal(parseInt(this.data[i].adults) + parseInt(this.data[i].children),this.data[i].rate)
+	        	}*/
+
+	          this.totalFinal = total;
+	        },
         	clearDate(){
         		this.date = '';
         		this.getResults();
@@ -177,6 +188,7 @@
 				axios.get('/reservations/list?date='+ this.date +'&q='+ this.search +'&page=' + page).then((response) => {
                       
                       this.data = response.data;
+                      this.getTotalFinal();
                       
                     }, (response) => {
                                 console.log(response.data)
