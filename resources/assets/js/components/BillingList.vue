@@ -129,7 +129,7 @@
 			    
 			  </tbody>
 			</table>
-			<div>
+			<div class="total-info">
 				<span class="tag is-info is-large">Total: ${{ totalFinal }}</span> <span class="tag is-success is-large">Reservations: {{ data.total }}</span>
 				
 			</div>
