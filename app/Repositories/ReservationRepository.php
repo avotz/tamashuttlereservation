@@ -17,7 +17,7 @@ class ReservationRepository extends DbRepository{
     function __construct(Reservation $model)
     {
         $this->model = $model;
-        $this->limit = 5;
+        $this->limit = 10;
     }
 
     /**
@@ -28,6 +28,8 @@ class ReservationRepository extends DbRepository{
     {
         
         $data = $this->prepareData($data);
+
+        $data['price'] = ($data['adults'] + $data['children']) * $data['rate']; // total
        
         $reservation = $this->model->create($data);
 
@@ -59,6 +61,8 @@ class ReservationRepository extends DbRepository{
     {
         $reservation = $this->model->findOrFail($id);
         $data = $this->prepareData($data);
+
+        $data['price'] = ($data['adults'] + $data['children']) * $data['rate']; // total
 
         $reservation->fill($data);
         
@@ -101,7 +105,29 @@ class ReservationRepository extends DbRepository{
             
             $reservations = $reservations->whereDate('reservations.date', $search['date']);
             
-        } 
+        }
+        if (isset($search['date1']) && $search['date1'] != "")
+        {
+           
+            
+            
+            $date1 = new Carbon($search['date1']);
+            $date2 = (isset($search['date2']) && $search['date2'] != "") ? $search['date2'] : $search['date1'];
+            $date2 = new Carbon($date2);
+            
+         
+            $reservations = $reservations->where([['reservations.date', '>=', $date1],
+                    ['reservations.date', '<=', $date2->endOfDay()]]);
+            
+        }
+
+        if (isset($search['hotel']) && trim($search['hotel']))
+        {
+            
+            $reservations = $reservations->where('reservations.hotel', $search['hotel']);
+            
+        }
+ 
 
         if (isset($search['assigned']) && $search['assigned'] != "")
         {
@@ -127,12 +153,26 @@ class ReservationRepository extends DbRepository{
             $dir = $search['dir'];
         }
 
+        $total = $reservations->sum('price');  
 
-        return $reservations->orderBy('last_minute', 'desc')
+        /*$reservationsForTotal = $reservations->get();
+
+        foreach ($reservationsForTotal as $res) {
+            $total += ($res->adults + $res->children) * $res->rate;
+        }*/
+
+        $pagination = $reservations->orderBy('last_minute', 'desc')
                             //->orderBy('status', 'desc')
                             //->orderBy('assigned', 'asc')
                             ->orderBy($order , $dir)
-        ->paginate($this->limit);
+                      ->paginate($this->limit);
+       
+       $data = response()->json([
+            'pagination' => $pagination,
+            'totalFinal' =>  $total
+        ]);
+
+        return $data;
 
     }
 
@@ -166,13 +206,13 @@ class ReservationRepository extends DbRepository{
                $dt->setTime($timeArray[0], $timeArray[1], 0);
                $data['date'] = $dt;
        
-        if(empty($data['children']) || is_null($data['children']))
+        if(is_null($data['children']))
             $data = array_except($data, array('children'));
 
-        if(empty($data['baby_seat']) || is_null($data['baby_seat']))
+        if(is_null($data['baby_seat']))
             $data = array_except($data, array('baby_seat'));
 
-        if(empty($data['infants']) || is_null($data['infants']))
+        if(is_null($data['infants']))
             $data = array_except($data, array('infants'));
 
            if(! empty($data['round_date']) && !is_null($data['round_date'])){

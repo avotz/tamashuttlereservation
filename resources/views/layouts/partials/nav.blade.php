@@ -15,6 +15,7 @@
             <a href="/vehicles" class="nav-item is-tab is-hidden-mobile {{ set_active('vehicles') }}">Vehicles</a>
             <a href="/clients" class="nav-item is-tab is-hidden-mobile {{ set_active('clients') }}">Clients</a>
             <a href="/hotels" class="nav-item is-tab is-hidden-mobile {{ set_active('hotels') }}">Hotels</a>
+            <a href="/billing" class="nav-item is-tab is-hidden-mobile {{ set_active('billing') }}">Billing</a>
             <a href="/users" class="nav-item is-tab is-hidden-mobile {{ set_active('users') }}">Users</a>
            @endif
       @endif
@@ -36,6 +37,7 @@
             <a href="/vehicles" class="nav-item is-tab is-hidden-tablet {{ set_active('vehicles') }}" >Vehicles</a>
             <a href="/clients" class="nav-item is-tab is-hidden-tablet {{ set_active('clients') }}">Clients</a>
             <a href="/hotels" class="nav-item is-tab is-hidden-tablet {{ set_active('hotels') }}">Hotels</a>
+            <a href="/billing" class="nav-item is-tab is-hidden-tablet {{ set_active('billing') }}">Billing</a>
             <a href="/users" class="nav-item is-tab is-hidden-tablet {{ set_active('users') }}">Users</a>
           @endif
       @endif

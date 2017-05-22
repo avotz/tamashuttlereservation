@@ -135,7 +135,7 @@
                     <div class="field-body">
                       <div class="field is-grouped">
                         <div class="control is-expanded has-icon">
-                          <input class="input" type="number" placeholder="Adults" v-model="form.adults" min="0" @keydown="errors.adults = []">
+                          <input class="input" type="number" placeholder="Adults" v-model="form.adults" min="1" @keydown="errors.adults = []">
                           <span class="icon is-small">
                             <i class="fa fa-male"></i>
                           </span>

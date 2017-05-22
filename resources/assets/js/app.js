@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('reservations-form', require('./components/ReservationsForm.vue'));
 Vue.component('reservations-list', require('./components/ReservationsList.vue'));
+Vue.component('billing-list', require('./components/BillingList.vue'));
 Vue.component('agenda', require('./components/Agenda.vue'));
 Vue.component('alert', require('./components/Alert.vue'));
 

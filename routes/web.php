@@ -54,6 +54,9 @@ Route::middleware('authByRole:admin')->group(function ()
 	//hotels
 	Route::resource('hotels', 'HotelsController');
 
+	//billing
+	Route::resource('billing', 'BillingController');
+
 
 	
 });

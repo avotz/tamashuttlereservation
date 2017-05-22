@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="content">
-			<h2>Reservations</h2>
+			<h2>Billing</h2>
 		</div>
 		<div class="panel filters">
 			<div class="panel-heading">
@@ -14,7 +14,7 @@
 	                <div class="field-body">
 	                	<div class="field has-addons">
 					      <div class="control">
-					        <VueFlatpickr :options="fpOptions" v-model="date" @blur="errors.date = []" @change="selectDate"  placeholder="Select Date.." />
+					        <VueFlatpickr :options="fpOptions" v-model="date1" @blur="errors.date1 = []" @change="selectDate"  placeholder="Select Date.." />
 
           
 					         <!--  <span class="icon is-small clear-date">
@@ -22,10 +22,36 @@
 						      </span>  -->
 					      </div>
 					       <div class="control">
-							    <a class="button is-info" @click="clearDate">
+							    <a class="button is-info" @click="clearDate1">
 							      X
 							    </a>
 						  </div>
+					    </div>
+					    <div class="field has-addons">
+					      <div class="control">
+					        <VueFlatpickr :options="fpOptions" v-model="date2" @blur="errors.date2 = []" @change="selectDate"  placeholder="Select Date.." />
+
+          
+					         <!--  <span class="icon is-small clear-date">
+						        <i class="fa fa-calendar"></i>
+						      </span>  -->
+					      </div>
+					       <div class="control">
+							    <a class="button is-info" @click="clearDate2">
+							      X
+							    </a>
+						  </div>
+					    </div>
+					    <div class="field is-grouped">
+					      <div class="control is-expanded has-icon">
+					         <v-select :debounce="250"
+	                            :on-search="getHotels"
+	                            :options="optionsHotels"
+	                            :value.sync="selectedHotel" 
+	                            :on-change="selectHotel"
+	                            placeholder="Search Hotel..."
+	                            label="name"></v-select>
+					      </div>
 					    </div>
 					    <div class="field is-grouped">
 					      <div class="control is-expanded has-icon">
@@ -35,6 +61,8 @@
 						      </span>
 					      </div>
 					    </div>
+
+					   
 					    
 					    
 					 </div>
@@ -53,7 +81,7 @@
 			      <th><abbr title="Important">Important</abbr></th>
 			      <th><abbr title="Client">Client</abbr></th>
 			      <th><abbr title="People">People</abbr></th>
-			      <th><abbr title="Rate">Rate</abbr></th>
+			      <th><abbr title="rate">Rate</abbr></th>
 			      <th>Total</th>
 			      <th><abbr title="Hidden notes">Hidden notes</abbr></th>
 			      <th><abbr title="Notes">Notes</abbr></th>
@@ -87,15 +115,13 @@
 			      <td data-title="Rate">${{ item.rate }}</td>
 			      <td data-title="Total">
 					${{ item.price }} 
-					<!-- getTotal(parseInt(item.adults) + parseInt(item.children), item.rate) -->
+					<!-- getTotal(parseInt(item.adults) + parseInt(item.children), item.rate)  -->
 					
 			      </td>
 			      <td data-title="Hidden notes">{{ item.hidden_notes }}</td>
 			      <td data-title="Notes">{{ item.notes }}</td>
 			      <td>
-			      	<a href="#" @click="edit(item)" class="button is-primary is-small" v-show="item.status != -1 && !parseInt(item.assigned)">Edit</a>
-			      	<a href="#" @click="cancel(item)" class="button is-warning is-small" v-show="item.status != -1">Cancel</a>
-			      	<a href="#" @click="remove(item)" class="delete" v-show="isAdmin"></a>
+			      	
 			      </td>
 			      
 			    </tr>
@@ -107,6 +133,7 @@
 			<nav class="pagination-bulma">
 				<laravel-pagination :data="data" v-on:pagination-change-page="getResults"></laravel-pagination >
 			</nav>
+			<span class="tag is-info is-large">Total: ${{ totalFinal }}</span> <span class="tag is-success is-large">Reservations: {{ data.total }}</span>
 		</div>
 	</div>
 </template>
@@ -116,6 +143,7 @@
    import LaravelPagination from 'laravel-vue-pagination'
    import VueFlatpickr from 'vue-flatpickr';
    import 'vue-flatpickr/theme/airbnb.css';
+   import vSelect from 'vue-select'
    
  export default {
         props: ['reservations','isAdmin'],
@@ -123,12 +151,17 @@
         components: {
 		    LaravelPagination: LaravelPagination,
 		    VueFlatpickr: VueFlatpickr,
+		    vSelect: vSelect
 		  },
         data () {
 	        return {
+	          optionsHotels: [],
+              selectedHotel: null,
 	 		  data:{},
 	 		  search:"",
-	 		  date:"",
+	 		  date1:"",
+	 		  date2:"",
+	 		  hotel:"",
 	          //items:[],
 	          loader:false,
 	          service_color:['default','info','pink','success','warning','yellow','purple','success'],
@@ -144,6 +177,42 @@
 	      },
 	      
         methods: {
+        	 selectHotel(hotel) {
+  
+	            if(hotel){
+	              
+	               this.selectedHotel = hotel;
+	              
+	               this.hotel = hotel.name;
+
+	             
+	             
+	            }else{
+	            	this.hotel = '';
+	            }
+
+	            this.getResults();
+
+            
+          
+           },
+            getHotels:_.debounce(function(search,loading) {
+                 loading(true)
+
+              
+                  axios.get('/hotels/list',{
+                  params: {
+                    q: search
+                    
+                  }
+                }).then(response => {
+
+                  this.optionsHotels = response.data
+                  loading(false)
+                });
+              
+
+            }, 500),
         	getTotal(people, rate){
 	            //let persons =parseInt((this.form.adults) ? this.form.adults : 0 ) + parseInt((this.form.children) ? this.form.children : 0);
 	            let total = rate * people;//(this.form.rate) ? this.form.rate : 0;
@@ -152,8 +221,12 @@
 
 	          },
 	        
-        	clearDate(){
-        		this.date = '';
+        	clearDate1(){
+        		this.date1 = '';
+        		this.getResults();
+        	},
+        	clearDate2(){
+        		this.date2 = '';
         		this.getResults();
         	},
         	
@@ -178,10 +251,11 @@
 				
 
 				// Using vue-resource as an example
-				axios.get('/reservations/list?date='+ this.date +'&q='+ this.search +'&page=' + page).then((response) => {
-                      
+				axios.get('/reservations/list?date1='+ this.date1 +'&date2='+ this.date2 +'&hotel='+ this.hotel +'&q='+ this.search +'&page=' + page).then((response) => {
+                    
                       this.data = response.data.pagination;
-                      this.getTotalFinal();
+                      this.totalFinal = response.data.totalFinal;
+                      
                       
                     }, (response) => {
                                 console.log(response.data)
