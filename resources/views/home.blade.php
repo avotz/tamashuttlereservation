@@ -49,7 +49,7 @@
 					      <td data-title="Name">{{ $travel->customer_name }}</td>
 					       <td data-title="PAX">{{ $travel->adults + $travel->children  }}</td>
 					       <td data-title="Rate">{{ $travel->rate }}</td>
-					       <td data-title="$">{{ ($travel->adults + $travel->children) * $travel->rate }}</td>
+					       <td data-title="$">{{ $travel->price }}</td>
 					       <td data-title="Status">{{ \Lang::get('utils.status.'. $travel->status)  }}</td>
 					       <td data-title="Notes">@if($travel->hidden_notes)<span class="tooltip" title="{{ $travel->hidden_notes }}"><i class="fa fa-eye"></i></span>@endif {{ $travel->notes }}</td>
 					      

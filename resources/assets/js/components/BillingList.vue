@@ -129,11 +129,11 @@
 			    
 			  </tbody>
 			</table>
+			<span class="tag is-info is-large">Total: ${{ totalFinal }}</span> <span class="tag is-success is-large">Reservations: {{ data.total }}</span>
 			
 			<nav class="pagination-bulma">
 				<laravel-pagination :data="data" v-on:pagination-change-page="getResults"></laravel-pagination >
 			</nav>
-			<span class="tag is-info is-large">Total: ${{ totalFinal }}</span> <span class="tag is-success is-large">Reservations: {{ data.total }}</span>
 		</div>
 	</div>
 </template>
