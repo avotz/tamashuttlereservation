@@ -206,16 +206,16 @@ class ReservationRepository extends DbRepository{
                $dt->setTime($timeArray[0], $timeArray[1], 0);
                $data['date'] = $dt;
        
-        if(is_null($data['children']))
+        if(isset($data['children']) && is_null($data['children']))
             $data = array_except($data, array('children'));
 
-        if(is_null($data['baby_seat']))
+        if(isset($data['baby_seat']) && is_null($data['baby_seat']))
             $data = array_except($data, array('baby_seat'));
 
-        if(is_null($data['infants']))
+        if(isset($data['infants']) && is_null($data['infants']))
             $data = array_except($data, array('infants'));
 
-           if(! empty($data['round_date']) && !is_null($data['round_date'])){
+           if(isset($data['infants']) && ! empty($data['round_date']) && !is_null($data['round_date'])){
                 
                 $roundTimeArray = explode(':', $data['round_time']);
 

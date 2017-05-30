@@ -181,7 +181,7 @@
 				axios.get('/reservations/list?date='+ this.date +'&q='+ this.search +'&page=' + page).then((response) => {
                       
                       this.data = response.data.pagination;
-                      this.getTotalFinal();
+                     // this.getTotalFinal();
                       
                     }, (response) => {
                                 console.log(response.data)
