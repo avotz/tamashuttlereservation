@@ -28,8 +28,6 @@ class ReservationRepository extends DbRepository{
     {
         
         $data = $this->prepareData($data);
-
-        $data['price'] = ($data['adults'] + $data['children']) * $data['rate']; // total
        
         $reservation = $this->model->create($data);
 
@@ -199,6 +197,7 @@ class ReservationRepository extends DbRepository{
 
     private function prepareData($data)
     {
+        
          $timeArray = explode(':', $data['time']);
 
 
@@ -206,16 +205,20 @@ class ReservationRepository extends DbRepository{
                $dt->setTime($timeArray[0], $timeArray[1], 0);
                $data['date'] = $dt;
        
-        if(isset($data['children']) && is_null($data['children']))
-            $data = array_except($data, array('children'));
+        if(!isset($data['children']))
+            $data['children'] = 0;
+          
+        
 
-        if(isset($data['baby_seat']) && is_null($data['baby_seat']))
-            $data = array_except($data, array('baby_seat'));
+        if(!isset($data['baby_seat']))
+            $data['baby_seat'] = 0;
 
-        if(isset($data['infants']) && is_null($data['infants']))
-            $data = array_except($data, array('infants'));
+        if(!isset($data['infants']))
+            $data['infants'] = 0;
 
-           if(isset($data['infants']) && ! empty($data['round_date']) && !is_null($data['round_date'])){
+        
+
+           if(isset($data['round_date']) && ! empty($data['round_date'])){
                 
                 $roundTimeArray = explode(':', $data['round_time']);
 
@@ -224,8 +227,9 @@ class ReservationRepository extends DbRepository{
                $dt->setTime($roundTimeArray[0], $roundTimeArray[1], 0);
                $data['round_date'] = $dt;
             }
-              
-
+        
+        $data['price'] = ($data['adults'] + $data['children']) * $data['rate']; // total
+        
         return $data;
     }
 
